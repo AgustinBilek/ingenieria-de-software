@@ -1,0 +1,82 @@
+{
+  "menu_administrador": "Administrador",
+  "menu_gestion_usuarios": "Gestao de usuarios",
+  "menu_gestion_perfiles": "Gestao de perfis",
+  "menu_bitacora": "Registro de eventos",
+  "menu_cerrar_sesion": "Encerrar sessao",
+  "menu_usuario": "Usuario",
+  "menu_cambiar_contrasena": "Alterar senha",
+  "menu_cambiar_idioma": "Alterar idioma",
+  "menu_iniciar_sesion": "Iniciar sessao",
+  "menu_ayuda": "ajuda",
+  "menu_gestion_roles": "gestão de funções",
+  "menu_gestion_familias": "gestão de famílias",
+
+  "login_titulo": "Iniciar Sessao",
+  "login_usuario": "Usuario",
+  "login_contrasena": "Senha",
+  "login_btn_ingresar": "Entrar",
+  "login_btn_salir": "Sair",
+
+  "gestion_titulo": "Gestao de Usuarios",
+  "gestion_lbl_dni": "CPF",
+  "gestion_lbl_nombre": "Nome",
+  "gestion_lbl_apellido": "Sobrenome",
+  "gestion_lbl_email": "Email",
+  "gestion_lbl_rol": "PERFIL",
+  "gestion_btn_agregar": "Adicionar",
+  "gestion_btn_deshabilitar": "Desabilitar",
+  "gestion_btn_modificar": "Modificar",
+  "gestion_btn_desbloquear": "Desbloquear",
+  "gestion_btn_aplicar": "Aplicar",
+  "gestion_btn_salir": "Sair",
+  "gestion_rb_activos": "Ativos",
+  "gestion_rb_bloqueados": "Bloqueados",
+  "gestion_rb_todos": "Todos",
+
+  "bitacora_titulo": "Registro de Eventos",
+  "bitacora_lbl_nombre": "Nome",
+  "bitacora_lbl_apellido": "Sobrenome",
+  "bitacora_lbl_login": "Login",
+  "bitacora_lbl_fecha_inicio": "Data inicio",
+  "bitacora_lbl_fecha_salida": "Data fim",
+  "bitacora_lbl_modulo": "Modulo",
+  "bitacora_lbl_accion": "Acao",
+  "bitacora_lbl_criticidad": "Criticidade",
+  "bitacora_btn_aplicar": "Aplicar",
+  "bitacora_btn_limpiar": "Limpar",
+  "bitacora_btn_imprimir": "Imprimir",
+  "bitacora_btn_salir": "Sair",
+
+  "cambiar_titulo": "Alterar Senha",
+  "cambiar_lbl_nombre": "Nome",
+  "cambiar_lbl_contra_actual": "Senha atual",
+  "cambiar_lbl_contra_nueva": "Nova senha",
+  "cambiar_lbl_repetir": "Repetir senha",
+  "cambiar_btn_aplicar": "Aplicar",
+
+
+
+  "nombre_familia": "nome da familia",
+  "crear": "criar",
+  "eliminar": "excluir",
+  "permisos": "permissoes",
+  "permisos_famiila": "familia",
+  "eliminar_permiso": "remover permissao",
+  "agregar_permiso": "adicionar permissao",
+  "permisos_de_la_familia": "permissoes da familia",
+
+
+  "eliminar_familia": "remover família",
+
+  "agregar_familia": "adicionar família",
+  "salir": "sair",
+
+  "permisos_del_rol": "permissões do papel",
+  "familias_del_rol": "famílias do papel",
+  "permisosrol_selec": "permissões no papel selecionado",
+  "familias": "famílias",
+  "roles": "papéis"
+
+
+}

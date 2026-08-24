@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{469866EF-657C-475D-990C-45CB807A21FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IngenieriaSoftware</RootNamespace>
+    <AssemblyName>IngenieriaSoftware</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.5, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.5\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormBitacora_MB29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBitacora_MB29.Designer.cs">
+      <DependentUpon>FormBitacora_MB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFamilias_MB29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFamilias_MB29.Designer.cs">
+      <DependentUpon>FormFamilias_MB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGESTIONUSER_MB29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGESTIONUSER_MB29.Designer.cs">
+      <DependentUpon>FormGESTIONUSER_MB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin_MB29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin_MB29.Designer.cs">
+      <DependentUpon>FormLogin_MB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipal_MB29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal_MB29.Designer.cs">
+      <DependentUpon>FormPrincipal_MB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCambiarContaseña_MB29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCambiarContaseña_MB29.Designer.cs">
+      <DependentUpon>FormCambiarContaseña_MB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRoles_MB29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRoles_MB29.Designer.cs">
+      <DependentUpon>FormRoles_MB29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBitacora_MB29.resx">
+      <DependentUpon>FormBitacora_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFamilias_MB29.resx">
+      <DependentUpon>FormFamilias_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGESTIONUSER_MB29.resx">
+      <DependentUpon>FormGESTIONUSER_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin_MB29.resx">
+      <DependentUpon>FormLogin_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal_MB29.resx">
+      <DependentUpon>FormPrincipal_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCambiarContaseña_MB29.resx">
+      <DependentUpon>FormCambiarContaseña_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRoles_MB29.resx">
+      <DependentUpon>FormRoles_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Idiomas\en.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Idiomas\es.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Idiomas\pt.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE_MB29.csproj">
+      <Project>{27719f9e-b70e-49be-9c69-87aa351a970e}</Project>
+      <Name>BE_MB29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL_MB29.csproj">
+      <Project>{a4c5a3e2-aa25-4f19-8958-bee6ce2c7bd7}</Project>
+      <Name>BLL_MB29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicio_MB29\Servicio_MB29.csproj">
+      <Project>{08ff13ac-7db5-4fdb-9449-45fa2f2cfdd8}</Project>
+      <Name>Servicio_MB29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
