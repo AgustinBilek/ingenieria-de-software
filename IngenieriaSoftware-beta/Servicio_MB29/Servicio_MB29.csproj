@@ -46,8 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraServicio_MB29.cs" />
+    <Compile Include="Codigoseguimiento.cs" />
     <Compile Include="ComponentePermiso_MB29.cs" />
     <Compile Include="Encriptador_MB29.cs" />
+    <Compile Include="Entidadesenvios.cs" />
     <Compile Include="Familia_MB29.cs" />
     <Compile Include="Gestoridioma_MB29.cs" />
     <Compile Include="IInicioSesion_MB29.cs" />
