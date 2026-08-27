@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BitacoraBLL_MB29.cs" />
     <Compile Include="bitacoracambiosBLL.cs" />
+    <Compile Include="DistribucionBLL.cs" />
     <Compile Include="FamiliaBLL_MB29.cs" />
     <Compile Include="PermisoBLL_MB29.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

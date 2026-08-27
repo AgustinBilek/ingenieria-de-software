@@ -45,6 +45,7 @@
     <Compile Include="bitacoracambiosDAL.cs" />
     <Compile Include="BitacoraDAL_MB29.cs" />
     <Compile Include="ConexionDB_MB29.cs" />
+    <Compile Include="DistribucionDAL.cs" />
     <Compile Include="FamiliaDAL_MB29.cs" />
     <Compile Include="PermisoDAL_MB29.cs" />
     <Compile Include="RolDAL_MB29.cs" />

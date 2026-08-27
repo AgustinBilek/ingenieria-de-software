@@ -5,12 +5,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Servicio_MB29;
 
 namespace DAL
 {
    public class bitacoracambiosDAL
     {
-        public void Guardar_MB29(CambioServicio_MB29 cambio)
+        public void Guardar_MB29(Cambioservicio_MB29 cambio)
         {
             var conectar = new ConexionDB_MB29();
             var conexion = conectar.Conectar_MB29();
@@ -33,9 +34,9 @@ namespace DAL
             conectar.Desconectar_MB29();
         }
 
-        public List<CambioServicio_MB29> CargarPorTabla_MB29(string tabla)
+        public List<Cambioservicio_MB29> CargarPorTabla_MB29(string tabla)
         {
-            List<CambioServicio_MB29> lista = new List<CambioServicio_MB29>();
+            List<Cambioservicio_MB29> lista = new List<Cambioservicio_MB29>();
 
             var conectar = new ConexionDB_MB29();
             var conexion = conectar.Conectar_MB29();
@@ -50,7 +51,7 @@ namespace DAL
                 {
                     while (reader.Read())
                     {
-                        lista.Add(new CambioServicio_MB29
+                        lista.Add(new Cambioservicio_MB29
                         {
                             IdCambio_MB29 = Convert.ToInt32(reader["IdCambio"]),
                             Usuario_MB29 = reader["Usuario"].ToString(),
@@ -70,4 +71,4 @@ namespace DAL
         }
     }
 }
-}
+
