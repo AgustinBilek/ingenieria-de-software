@@ -53,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBACKUPRESTORE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBACKUPRESTORE.Designer.cs" />
     <Compile Include="formbitacoracambios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +107,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBACKUPRESTORE.resx" />
     <EmbeddedResource Include="formbitacoracambios.resx">
       <DependentUpon>formbitacoracambios.cs</DependentUpon>
     </EmbeddedResource>
