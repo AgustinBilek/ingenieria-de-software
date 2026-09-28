@@ -1,6 +1,7 @@
 using Servicio_MB29;
 using DAL;
 using System;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -8,8 +9,15 @@ namespace BLL
     {
         private readonly EnvioDAL_MB29 _dal = new EnvioDAL_MB29();
 
-        // ---------------- CU1: Registrar Paquete ----------------
-        // Paso 1 de PN1: el operador registra tipo y contenido del paquete.
+        public Remitente_MB29 BuscarRemitentePorDNI_MB29(long dni)
+        {
+            return _dal.BuscarRemitentePorDNI_MB29(dni);
+        }
+
+        public Destinatario_MB29 BuscarDestinatarioPorDNI_MB29(long dni)
+        {
+            return _dal.BuscarDestinatarioPorDNI_MB29(dni);
+        }
         public Paquete_MB29 RegistrarPaquete_MB29(string usuarioLogueado, string tipoPaquete, string contenido)
         {
             if (string.IsNullOrWhiteSpace(tipoPaquete))
@@ -27,6 +35,11 @@ namespace BLL
             return paquete;
         }
 
+
+        public List<Paquete_MB29> ObtenerPaquetesSinEnvio_MB29()
+        {
+            return _dal.ObtenerPaquetesSinEnvio_MB29();
+        }
         // ---------------- CU2: Registrar Envío ----------------
         // Pasos 2a, 2b y 3 de PN1: busca/da de alta remitente y destinatario
         // por DNI, y genera el envío asociándolos al paquete ya registrado.

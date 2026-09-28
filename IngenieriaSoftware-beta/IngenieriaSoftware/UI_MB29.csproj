@@ -69,6 +69,12 @@
     <Compile Include="FormBitacora_MB29.Designer.cs">
       <DependentUpon>FormBitacora_MB29.cs</DependentUpon>
     </Compile>
+    <Compile Include="formconfirmarenvio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formconfirmarenvio.Designer.cs">
+      <DependentUpon>formconfirmarenvio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFamilias_MB29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,18 @@
     <Compile Include="FormCambiarContaseña_MB29.Designer.cs">
       <DependentUpon>FormCambiarContaseña_MB29.cs</DependentUpon>
     </Compile>
+    <Compile Include="formregistroenvio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formregistroenvio.Designer.cs">
+      <DependentUpon>formregistroenvio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formregistropaquete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formregistropaquete.Designer.cs">
+      <DependentUpon>formregistropaquete.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRoles_MB29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +132,9 @@
     <EmbeddedResource Include="FormBitacora_MB29.resx">
       <DependentUpon>FormBitacora_MB29.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formconfirmarenvio.resx">
+      <DependentUpon>formconfirmarenvio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFamilias_MB29.resx">
       <DependentUpon>FormFamilias_MB29.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCambiarContaseña_MB29.resx">
       <DependentUpon>FormCambiarContaseña_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formregistroenvio.resx">
+      <DependentUpon>formregistroenvio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formregistropaquete.resx">
+      <DependentUpon>formregistropaquete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRoles_MB29.resx">
       <DependentUpon>FormRoles_MB29.cs</DependentUpon>

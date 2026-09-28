@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using BLL;
 
 namespace IngenieriaSoftware
 {
@@ -324,15 +325,12 @@ namespace IngenieriaSoftware
 
         private void FormGESTIONUSER_MB29_Load(object sender, EventArgs e)
         {
-            var roles = new List<Rol_MB29>
-            {
-                new Rol_MB29 { IdRol_MB29 = 1, Nombre = "Administrador" },
-                new Rol_MB29 { IdRol_MB29 = 2, Nombre = "Usuario" }
-            };
+            var rolBLL = new RolBLL_MB29();
+            var roles = rolBLL.ObtenerRoles_MB29();
 
+            RolCB.DisplayMember = "Nombre";
+            RolCB.ValueMember = "IdRol_MB29";
             RolCB.DataSource = roles;
-            RolCB.DisplayMember = "NombreRol";
-            RolCB.ValueMember = "IdRol";
 
             if (DGVUsuarios.Columns.Contains("Bloqueado"))
                 DGVUsuarios.Columns.Remove("Bloqueado");

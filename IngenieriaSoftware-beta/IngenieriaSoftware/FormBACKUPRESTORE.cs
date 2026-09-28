@@ -19,7 +19,7 @@ namespace IngenieriaSoftware
         {
             InitializeComponent();
 
-            if (!SessionManager_MB29.Instancia_MB29.UsuarioActual_MB29.Rol_MB29.TienePermiso_MB29(Permisos_MB29.GestionUsuarios))
+         //   if (!SessionManager_MB29.Instancia_MB29.UsuarioActual_MB29.Rol_MB29.TienePermiso_MB29(Permisos_MB29.GestionUsuarios))
             {
                 MessageBox.Show("No tiene permiso para acceder a esta sección.");
                 this.Load += (s, e) => this.Close();

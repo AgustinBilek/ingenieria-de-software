@@ -17,10 +17,26 @@ namespace IngenieriaSoftware
     {
         public FormPrincipal_MB29()
         {
+
+            const int ROL_ADMINISTRADOR = 1;
+            const int ROL_USUARIO = 2;
+            const int ROL_OPERADOR = 4;
+
+
+            int rol = SessionManager_MB29.Instancia_MB29.UsuarioActual_MB29.IdRol_MB29;
             InitializeComponent();
-            if (SessionManager_MB29.Instancia_MB29.UsuarioActual_MB29.IdRol_MB29 == 1)
+            if (rol==ROL_ADMINISTRADOR)
             {
                 administradorToolStripMenuItem.Enabled = true;
+                usuarioToolStripMenuItem.Enabled = true;
+                rF1ToolStripMenuItem.Enabled = true;
+                rF2ToolStripMenuItem.Enabled = true;
+                ayudaToolStripMenuItem.Enabled = true;
+            }
+            else if(rol==ROL_OPERADOR)
+            {
+                administradorToolStripMenuItem.Enabled = false;
+                administradorToolStripMenuItem.Visible = false;
                 usuarioToolStripMenuItem.Enabled = true;
                 rF1ToolStripMenuItem.Enabled = true;
                 rF2ToolStripMenuItem.Enabled = true;
@@ -102,7 +118,7 @@ namespace IngenieriaSoftware
             gestionDeUsuariosToolStripMenuItem.Text = g.Traducir_MB29("menu_gestion_usuarios");
             gestionDePerfilesToolStripMenuItem.Text = g.Traducir_MB29("menu_gestion_perfiles");
             bitacoraDeEventosToolStripMenuItem.Text = g.Traducir_MB29("menu_bitacora");
-            cerrarSesionToolStripMenuItem.Text = g.Traducir_MB29("menu_cerrar_sesion");
+          //  cerrarSesionToolStripMenuItem.Text = g.Traducir_MB29("menu_cerrar_sesion");
             usuarioToolStripMenuItem.Text = g.Traducir_MB29("menu_usuario");
             cambiarContraseñaToolStripMenuItem.Text = g.Traducir_MB29("menu_cambiar_contrasena");
             cambairIdiomaToolStripMenuItem.Text = g.Traducir_MB29("menu_cambiar_idioma");
@@ -147,6 +163,18 @@ namespace IngenieriaSoftware
         private void FormPrincipal_MB29_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void registroPaqueteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formregistropaquete formRegistroPaquete = new formregistropaquete();
+            formRegistroPaquete.Show();
+        }
+
+        private void registroEnvioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formregistroenvio formRegistroEnvio = new formregistroenvio();
+            formRegistroEnvio.Show();
         }
     }
 }

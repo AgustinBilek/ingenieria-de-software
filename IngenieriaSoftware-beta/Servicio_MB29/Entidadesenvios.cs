@@ -20,6 +20,11 @@ namespace Servicio_MB29
             TipoPaquete_MB29 = tipoPaquete;
             Contenido_MB29 = contenido;
         }
+
+        public string Descripcion_MB29
+        {
+            get { return $"#{IdPaquete_MB29} - {TipoPaquete_MB29} ({Contenido_MB29})"; }
+        }
     }
 
     public class Remitente_MB29
@@ -129,6 +134,9 @@ namespace Servicio_MB29
             DetalleAnterior_MB29 = detalleAnterior;
             DetalleNuevo_MB29 = detalleNuevo;
         }
+
+
+
     }
 
 }

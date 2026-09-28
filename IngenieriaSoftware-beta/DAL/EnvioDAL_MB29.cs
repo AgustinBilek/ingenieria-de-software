@@ -2,6 +2,7 @@ using Servicio_MB29;
 using DAL_MB29;
 using System;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace DAL
 {
@@ -246,6 +247,39 @@ namespace DAL
 
             conectar.Desconectar_MB29();
             return estado;
+        }
+
+        public List<Paquete_MB29> ObtenerPaquetesSinEnvio_MB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+
+            string query = @"SELECT p.IdPaquete, p.TipoPaquete, p.Contenido
+                      FROM Paquete p
+                      WHERE NOT EXISTS (
+                          SELECT 1 FROM Envio e WHERE e.IdPaquete = p.IdPaquete
+                      )";
+
+            var lista = new List<Paquete_MB29>();
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            {
+                using (SqlDataReader reader = comando.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new Paquete_MB29
+                        {
+                            IdPaquete_MB29 = Convert.ToInt32(reader["IdPaquete"]),
+                            TipoPaquete_MB29 = reader["TipoPaquete"].ToString(),
+                            Contenido_MB29 = reader["Contenido"].ToString()
+                        });
+                    }
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
         }
     }
 }
