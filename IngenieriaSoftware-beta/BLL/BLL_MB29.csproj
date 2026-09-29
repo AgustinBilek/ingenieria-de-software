@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraBLL_MB29.cs" />
-    <Compile Include="bitacoracambiosBLL.cs" />
     <Compile Include="DigitoVerificadorBLL_MB29.cs" />
     <Compile Include="EnvioBLL_MB29.cs" />
     <Compile Include="FamiliaBLL_MB29.cs" />

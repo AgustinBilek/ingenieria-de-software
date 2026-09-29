@@ -57,6 +57,7 @@ namespace IngenieriaSoftware
             CBModulo.Items.Add("Seguridad");
             CBModulo.Items.Add("Usuarios");
             CBModulo.Items.Add("Bitacora");
+            CBModulo.Items.Add("Negocio");
             CBModulo.SelectedIndex = 0;
 
             CargarDGV_MB29();
@@ -255,6 +256,14 @@ namespace IngenieriaSoftware
             else if (CBModulo.SelectedItem?.ToString() == "Bitacora")
             {
                 CBAccion.Items.Add("Exportar PDF");
+            }
+            else if (CBModulo.SelectedItem?.ToString() == "Negocio")
+            {
+                CBAccion.Items.Add("Registrar Paquete");
+                CBAccion.Items.Add("Registrar Envio");
+                CBAccion.Items.Add("Registrar Condiciones");
+                CBAccion.Items.Add("Registrar Pago");
+                CBAccion.Items.Add("Confirmar Envio");
             }
 
             CBAccion.SelectedIndex = 0;

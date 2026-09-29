@@ -51,6 +51,7 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rF2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.respaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(923, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(923, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,9 +76,10 @@
             this.administradorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionDeUsuariosToolStripMenuItem,
             this.gestionDePerfilesToolStripMenuItem,
-            this.bitacoraDeEventosToolStripMenuItem});
+            this.bitacoraDeEventosToolStripMenuItem,
+            this.respaldoToolStripMenuItem});
             this.administradorToolStripMenuItem.Name = "administradorToolStripMenuItem";
-            this.administradorToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
+            this.administradorToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.administradorToolStripMenuItem.Text = "Administrador";
             // 
             // gestionDeUsuariosToolStripMenuItem
@@ -239,6 +241,12 @@
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
+            // respaldoToolStripMenuItem
+            // 
+            this.respaldoToolStripMenuItem.Name = "respaldoToolStripMenuItem";
+            this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.respaldoToolStripMenuItem.Text = "Respaldo";
+            // 
             // FormPrincipal_MB29
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,5 +291,6 @@
         private System.Windows.Forms.ToolStripMenuItem confirmarEnvioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serializacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem respaldoToolStripMenuItem;
     }
 }

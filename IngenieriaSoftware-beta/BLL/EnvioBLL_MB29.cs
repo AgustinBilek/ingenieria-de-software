@@ -20,6 +20,8 @@ namespace BLL
         }
         public Paquete_MB29 RegistrarPaquete_MB29(string usuarioLogueado, string tipoPaquete, string contenido)
         {
+
+
             if (string.IsNullOrWhiteSpace(tipoPaquete))
                 throw new Exception("Debe indicar el tipo de paquete.");
             if (string.IsNullOrWhiteSpace(contenido))
@@ -28,9 +30,16 @@ namespace BLL
             var paquete = new Paquete_MB29(tipoPaquete, contenido);
             paquete.IdPaquete_MB29 = _dal.GuardarPaquete_MB29(paquete);
 
-            bitacoracambiosBLL.instancia.RegistrarAlta_MB29(
-                usuarioLogueado, "Paquete", paquete.IdPaquete_MB29,
-                $"Tipo={tipoPaquete}; Contenido={contenido}");
+
+
+            BitacoraBLL_MB29.instancia.Registrar_MB29(
+usuarioLogueado,
+"Registrar Paquete",
+"Negocio",
+$"Usuario {usuarioLogueado} registró el paquete #{paquete.IdPaquete_MB29} ({tipoPaquete})",
+criticidad: 2
+);
+
 
             return paquete;
         }
@@ -84,9 +93,7 @@ namespace BLL
                     Telefono_MB29 = telefonoRem,
                     Email_MB29 = emailRem
                 };
-                remitente.IdRemitente_MB29 = _dal.GuardarRemitente_MB29(remitente);
-                bitacoracambiosBLL.instancia.RegistrarAlta_MB29(usuarioLogueado, "Remitente",
-                    remitente.IdRemitente_MB29, $"DNI={dniRemitente}; Nombre={nombreRem} {apellidoRem}");
+
             }
 
             // 2b: destinatario
@@ -101,8 +108,7 @@ namespace BLL
                     Telefono_MB29 = telefonoDest
                 };
                 destinatario.IdDestinatario_MB29 = _dal.GuardarDestinatario_MB29(destinatario);
-                bitacoracambiosBLL.instancia.RegistrarAlta_MB29(usuarioLogueado, "Destinatario",
-                    destinatario.IdDestinatario_MB29, $"DNI={dniDestinatario}; Nombre={nombreDest}");
+              
             }
 
             // 3: generar el envío
@@ -117,8 +123,7 @@ namespace BLL
             };
             envio.IdEnvio_MB29 = _dal.GuardarEnvio_MB29(envio);
 
-            bitacoracambiosBLL.instancia.RegistrarAlta_MB29(usuarioLogueado, "Envio",
-                envio.IdEnvio_MB29, $"Paquete={idPaquete}; Remitente={remitente.IdRemitente_MB29}; Destinatario={destinatario.IdDestinatario_MB29}; Estado=Recibido en sucursal");
+         
 
             return envio;
         }
@@ -130,8 +135,15 @@ namespace BLL
             string estadoAnterior = _dal.ObtenerEstadoEnvio_MB29(idEnvio);
             _dal.ActualizarCondiciones_MB29(idEnvio, prioridad, tipoEnvio);
 
-            bitacoracambiosBLL.instancia.RegistrarModificacion_MB29(usuarioLogueado, "Envio", idEnvio,
-                $"Estado={estadoAnterior}", $"Prioridad={prioridad}; TipoEnvio={tipoEnvio}");
+     
+
+            BitacoraBLL_MB29.instancia.Registrar_MB29(
+    usuarioLogueado,
+    "Registrar Condiciones",
+    "Negocio",
+    $"Usuario {usuarioLogueado} definió las condiciones del envío #{idEnvio}: prioridad {prioridad}, tipo {tipoEnvio}",
+    criticidad: 2
+);
         }
 
         // Paso 5: pago
@@ -149,8 +161,15 @@ namespace BLL
             };
             pago.IdPago_MB29 = _dal.GuardarPago_MB29(pago);
 
-            bitacoracambiosBLL.instancia.RegistrarAlta_MB29(usuarioLogueado, "PagoEnvio",
-                pago.IdPago_MB29, $"Envio={idEnvio}; TipoPago={tipoPago}; Monto={monto}");
+
+
+            BitacoraBLL_MB29.instancia.Registrar_MB29(
+    usuarioLogueado,
+    "Registrar Pago",
+    "Negocio",
+    $"Usuario {usuarioLogueado} registró el pago del envío #{idEnvio} ({tipoPago}, monto {monto})",
+    criticidad: 5
+);
 
             return pago;
         }
@@ -169,8 +188,15 @@ namespace BLL
 
             _dal.ConfirmarEnvio_MB29(idEnvio, "Listo para despacho", codigoCompleto, dv);
 
-            bitacoracambiosBLL.instancia.RegistrarModificacion_MB29(usuarioLogueado, "Envio", idEnvio,
-                $"Estado={estadoAnterior}", $"Estado=Listo para despacho; CodigoSeguimiento={codigoCompleto}-{dv}");
+
+
+            BitacoraBLL_MB29.instancia.Registrar_MB29(
+    usuarioLogueado,
+    "Confirmar Envio",
+    "Negocio",
+    $"Usuario {usuarioLogueado} confirmó el envío #{idEnvio} (código {codigoCompleto}-{dv}), quedó listo para despacho",
+    criticidad: 3
+);
 
             return new Envio_MB29
             {

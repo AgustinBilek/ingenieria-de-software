@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bitacoracambiosDAL.cs" />
     <Compile Include="BitacoraDAL_MB29.cs" />
     <Compile Include="ConexionDB_MB29.cs" />
     <Compile Include="DigitoVerificadorDAL_MB29.cs" />
