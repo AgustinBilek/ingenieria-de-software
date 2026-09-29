@@ -14,12 +14,14 @@ using System.Xml.Serialization;
 
 namespace IngenieriaSoftware
 {
-    public partial class Formserializar: Form
+    public partial class Formserializar: Form,IObserverIdioma_MB29
     {
         private readonly EnvioBLL_MB29 _envioBLL = new EnvioBLL_MB29();
         public Formserializar()
         {
             InitializeComponent();
+            Gestoridioma_MB29.Instancia_MB29.Agregar_MB29(this);
+            actualizar_MB29(Gestoridioma_MB29.Instancia_MB29.IdiomaActual_MB29);
         }
         private void CargarGrid_AB29()
         {
@@ -30,7 +32,13 @@ namespace IngenieriaSoftware
         {
             CargarGrid_AB29();
         }
-
+        public void actualizar_MB29(string idioma)
+        {
+            var g = Gestoridioma_MB29.Instancia_MB29;
+            button1.Text = g.Traducir_MB29("btnserializar");
+            button2.Text = g.Traducir_MB29("btndeserializar");
+            button3.Text = g.Traducir_MB29("btnSalir");
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             var enPantalla = dataGridView1.DataSource as List<Clientebackup_AB29>;
@@ -100,6 +108,11 @@ namespace IngenieriaSoftware
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

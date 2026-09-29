@@ -47,13 +47,7 @@ namespace Servicio_MB29
         public string Telefono_MB29 { get; set; }
     }
 
-    public class Vehiculo_MB29
-    {
-        public int IdVehiculo_MB29 { get; set; }
-        public string Patente_MB29 { get; set; }
-        public string Tipo_MB29 { get; set; }
-        public string Estado_MB29 { get; set; }
-    }
+
 
     public class Envio_MB29
     {
@@ -84,35 +78,11 @@ namespace Servicio_MB29
         public DateTime FechaPago_MB29 { get; set; }
     }
 
-    public class AsignacionRepartidor_MB29
-    {
-        public int IdAsignacion_MB29 { get; set; }
-        public int IdEnvio_MB29 { get; set; }
-        public int IdRepartidor_MB29 { get; set; }
-        public DateTime FechaAsignacion_MB29 { get; set; }
-    }
 
-    public class CargaVehiculo_MB29
-    {
-        public int IdCarga_MB29 { get; set; }
-        public int IdEnvio_MB29 { get; set; }
-        public int IdVehiculo_MB29 { get; set; }
-        public int IdOperarioCarga_MB29 { get; set; }
-        public DateTime FechaHoraCarga_MB29 { get; set; }
-    }
 
-    public class EntregaEnvio_MB29
-    {
-        public int IdEntrega_MB29 { get; set; }
-        public int IdEnvio_MB29 { get; set; }
-        public int IdRepartidor_MB29 { get; set; }
-        public DateTime? FechaHoraRecepcion_MB29 { get; set; }
-        public DateTime? FechaSalida_MB29 { get; set; }
-        public TimeSpan? HoraSalida_MB29 { get; set; }
-        public DateTime? FechaEntrega_MB29 { get; set; }
-        public TimeSpan? HoraEntrega_MB29 { get; set; }
-        public string FirmaDestinatario_MB29 { get; set; }
-    }
+ 
+
+
 
     // Registro de la Bitácora de Cambios (solo ABM, distinta de BitacoraServicio_MB29)
     public class Cambioservicio_MB29

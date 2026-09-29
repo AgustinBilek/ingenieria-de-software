@@ -91,7 +91,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(52, 396);
+            this.label5.Location = new System.Drawing.Point(26, 395);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(184, 33);
             this.label5.TabIndex = 4;
@@ -116,6 +116,7 @@
             this.codigoLBL.Size = new System.Drawing.Size(93, 33);
             this.codigoLBL.TabIndex = 6;
             this.codigoLBL.Text = "label7";
+            this.codigoLBL.Click += new System.EventHandler(this.codigoLBL_Click);
             // 
             // confirmarBTN
             // 
@@ -123,7 +124,7 @@
             this.confirmarBTN.Name = "confirmarBTN";
             this.confirmarBTN.Size = new System.Drawing.Size(217, 64);
             this.confirmarBTN.TabIndex = 7;
-            this.confirmarBTN.Text = "button1";
+            this.confirmarBTN.Text = "Confirmar";
             this.confirmarBTN.UseVisualStyleBackColor = true;
             this.confirmarBTN.Click += new System.EventHandler(this.confirmarBTN_Click);
             // 
@@ -133,7 +134,7 @@
             this.salirBTN.Name = "salirBTN";
             this.salirBTN.Size = new System.Drawing.Size(217, 64);
             this.salirBTN.TabIndex = 8;
-            this.salirBTN.Text = "button2";
+            this.salirBTN.Text = "Salir";
             this.salirBTN.UseVisualStyleBackColor = true;
             this.salirBTN.Click += new System.EventHandler(this.salirBTN_Click);
             // 
@@ -143,7 +144,7 @@
             this.guardarCondicionesBTN.Name = "guardarCondicionesBTN";
             this.guardarCondicionesBTN.Size = new System.Drawing.Size(342, 36);
             this.guardarCondicionesBTN.TabIndex = 9;
-            this.guardarCondicionesBTN.Text = "button3";
+            this.guardarCondicionesBTN.Text = "Guardar envio";
             this.guardarCondicionesBTN.UseVisualStyleBackColor = true;
             this.guardarCondicionesBTN.Click += new System.EventHandler(this.guardarCondicionesBTN_Click);
             // 
@@ -188,7 +189,7 @@
             this.registrarPagoBTN.Name = "registrarPagoBTN";
             this.registrarPagoBTN.Size = new System.Drawing.Size(342, 36);
             this.registrarPagoBTN.TabIndex = 14;
-            this.registrarPagoBTN.Text = "button4";
+            this.registrarPagoBTN.Text = "Guardar pago";
             this.registrarPagoBTN.UseVisualStyleBackColor = true;
             this.registrarPagoBTN.Click += new System.EventHandler(this.registrarPagoBTN_Click);
             // 

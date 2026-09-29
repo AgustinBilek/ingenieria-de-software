@@ -46,7 +46,6 @@
     <Compile Include="BitacoraDAL_MB29.cs" />
     <Compile Include="ConexionDB_MB29.cs" />
     <Compile Include="DigitoVerificadorDAL_MB29.cs" />
-    <Compile Include="DistribucionDAL.cs" />
     <Compile Include="EnvioDAL_MB29.cs" />
     <Compile Include="FamiliaDAL_MB29.cs" />
     <Compile Include="PermisoDAL_MB29.cs" />

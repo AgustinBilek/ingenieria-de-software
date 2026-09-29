@@ -15,11 +15,15 @@ using Servicio_MB29;
 
 namespace IngenieriaSoftware
 {
-    public partial class formreporte: Form
+    public partial class formreporte: Form, IObserverIdioma_MB29
     {
         public formreporte()
         {
             InitializeComponent();
+
+            Gestoridioma_MB29.Instancia_MB29.Agregar_MB29(this);
+            actualizar_MB29(Gestoridioma_MB29.Instancia_MB29.IdiomaActual_MB29);
+
         }
         private readonly EnvioBLL_MB29 _envioBLL = new EnvioBLL_MB29();
 
@@ -45,7 +49,14 @@ namespace IngenieriaSoftware
             if (dgvReporte.Columns["MontoTotal_AB29"] != null) dgvReporte.Columns["MontoTotal_AB29"].HeaderText = "Monto";
         }
 
+        public void actualizar_MB29(string idioma)
+        {
+            var g =Gestoridioma_MB29.Instancia_MB29;
+            BtnExportarPDF.Text = g.Traducir_MB29("btnExportarPDF");
+            BtnActualizar.Text = g.Traducir_MB29("btnActualizar");
+            BtnSalir.Text = g.Traducir_MB29("btnSalir");
 
+        }
 
 
 

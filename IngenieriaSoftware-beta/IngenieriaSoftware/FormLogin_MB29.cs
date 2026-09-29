@@ -115,5 +115,10 @@ namespace UI_MB29
         {
             this.Close();
         }
+
+        private void FormLogin_MB29_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

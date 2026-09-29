@@ -52,7 +52,7 @@
             this.BtnExportarPDF.Name = "BtnExportarPDF";
             this.BtnExportarPDF.Size = new System.Drawing.Size(202, 63);
             this.BtnExportarPDF.TabIndex = 1;
-            this.BtnExportarPDF.Text = "button1";
+            this.BtnExportarPDF.Text = "Generar reporte";
             this.BtnExportarPDF.UseVisualStyleBackColor = true;
             this.BtnExportarPDF.Click += new System.EventHandler(this.BtnExportarPDF_Click);
             // 
@@ -62,7 +62,7 @@
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(202, 63);
             this.BtnActualizar.TabIndex = 2;
-            this.BtnActualizar.Text = "button2";
+            this.BtnActualizar.Text = "Actualizar";
             this.BtnActualizar.UseVisualStyleBackColor = true;
             this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
@@ -72,7 +72,7 @@
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(202, 63);
             this.BtnSalir.TabIndex = 3;
-            this.BtnSalir.Text = "button3";
+            this.BtnSalir.Text = "Salir";
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 

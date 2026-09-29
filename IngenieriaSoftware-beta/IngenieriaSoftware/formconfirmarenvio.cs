@@ -13,11 +13,13 @@ using Servicio_MB29;
 
 namespace IngenieriaSoftware
 {
-    public partial class formconfirmarenvio: Form
+    public partial class formconfirmarenvio: Form, IObserverIdioma_MB29
     {
         public formconfirmarenvio()
         {
             InitializeComponent();
+            Gestoridioma_MB29.Instancia_MB29.Agregar_MB29(this);
+            actualizar_MB29(Gestoridioma_MB29.Instancia_MB29.IdiomaActual_MB29);
         }
         private readonly EnvioBLL_MB29 _envioBLL = new EnvioBLL_MB29();
         private int _idEnvio;
@@ -26,7 +28,23 @@ namespace IngenieriaSoftware
 
 
 
+        public void actualizar_MB29(string idioma)
+        {
+            var g = Gestoridioma_MB29.Instancia_MB29;
+            label1.Text = g.Traducir_MB29("lblcondiciones");
+            label2.Text = g.Traducir_MB29("lblprioridad");
+            label3.Text = g.Traducir_MB29("lbltipoenvio");
+            label4.Text = g.Traducir_MB29("lblpago");
+            label5.Text = g.Traducir_MB29("lbltipopago");
+            label6.Text = g.Traducir_MB29("lblmonto");
+            codigoLBL.Text = g.Traducir_MB29("lblcodigo");
+            label8.Text = g.Traducir_MB29("lblEnvio");
+            confirmarBTN.Text = g.Traducir_MB29("btnConfirmar");
+            guardarCondicionesBTN.Text = g.Traducir_MB29("btnGuardarCondiciones");
+            registrarPagoBTN.Text = g.Traducir_MB29("btnRegistrarPago");
+            salirBTN.Text = g.Traducir_MB29("btnSalir");
 
+        }
 
 
         private void CargarEnviosPendientes_AB29()
@@ -186,6 +204,11 @@ namespace IngenieriaSoftware
         }
 
         private void salirBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void codigoLBL_Click(object sender, EventArgs e)
         {
 
         }

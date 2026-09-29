@@ -118,7 +118,7 @@ namespace IngenieriaSoftware
             gestionDeUsuariosToolStripMenuItem.Text = g.Traducir_MB29("menu_gestion_usuarios");
             gestionDePerfilesToolStripMenuItem.Text = g.Traducir_MB29("menu_gestion_perfiles");
             bitacoraDeEventosToolStripMenuItem.Text = g.Traducir_MB29("menu_bitacora");
-          //  cerrarSesionToolStripMenuItem.Text = g.Traducir_MB29("menu_cerrar_sesion");
+          
             usuarioToolStripMenuItem.Text = g.Traducir_MB29("menu_usuario");
             cambiarContraseñaToolStripMenuItem.Text = g.Traducir_MB29("menu_cambiar_contrasena");
             cambairIdiomaToolStripMenuItem.Text = g.Traducir_MB29("menu_cambiar_idioma");
@@ -127,6 +127,13 @@ namespace IngenieriaSoftware
             ayudaToolStripMenuItem.Text = g.Traducir_MB29("menu_ayuda");
             gestionRolesToolStripMenuItem.Text = g.Traducir_MB29("menu_gestion_roles");
             gestionFamiliasToolStripMenuItem.Text = g.Traducir_MB29("menu_gestion_familias");
+            registroPaqueteToolStripMenuItem.Text = g.Traducir_MB29("menu_registro_paquete");
+            registroEnvioToolStripMenuItem.Text = g.Traducir_MB29("menu_registro_envio");
+            serializacionToolStripMenuItem.Text = g.Traducir_MB29("menu_serializacion");
+            confirmarEnvioToolStripMenuItem.Text = g.Traducir_MB29("menu_confirmar_envio");
+            reportesToolStripMenuItem.Text = g.Traducir_MB29("menu_reportes");
+           
+
         }
 
         private void españolToolStripMenuItem_Click(object sender, EventArgs e)
