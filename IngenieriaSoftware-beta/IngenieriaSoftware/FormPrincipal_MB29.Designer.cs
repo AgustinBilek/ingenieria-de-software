@@ -50,6 +50,7 @@
             this.rF2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serializacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,7 +186,8 @@
             this.registroPaqueteToolStripMenuItem,
             this.registroEnvioToolStripMenuItem,
             this.confirmarEnvioToolStripMenuItem,
-            this.serializacionToolStripMenuItem});
+            this.serializacionToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.rF1ToolStripMenuItem.Name = "rF1ToolStripMenuItem";
             this.rF1ToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.rF1ToolStripMenuItem.Text = "PN1";
@@ -230,6 +232,13 @@
             this.serializacionToolStripMenuItem.Text = "Serializacion";
             this.serializacionToolStripMenuItem.Click += new System.EventHandler(this.serializacionToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
+            // 
             // FormPrincipal_MB29
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -273,5 +282,6 @@
         private System.Windows.Forms.ToolStripMenuItem registroEnvioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem confirmarEnvioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serializacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
     }
 }

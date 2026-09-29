@@ -188,5 +188,11 @@ namespace IngenieriaSoftware
             formconfirmarenvio formConfirmarEnvio = new formconfirmarenvio();
             formConfirmarEnvio.Show();
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formreporte formReportes = new formreporte();
+            formReportes.Show();
+        }
     }
 }

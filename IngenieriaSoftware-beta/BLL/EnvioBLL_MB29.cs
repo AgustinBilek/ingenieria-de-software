@@ -58,6 +58,12 @@ namespace BLL
         {
             return _dal.ObtenerEnviosPendientesConfirmacion_AB29();
         }
+
+
+        public List<Reporte_AB29> ObtenerReporteRecepcionPaquetes_AB29()
+        {
+            return _dal.ObtenerReporteRecepcionPaquetes_AB29();
+        }
         // ---------------- CU2: Registrar Envío ----------------
         // Pasos 2a, 2b y 3 de PN1: busca/da de alta remitente y destinatario
         // por DNI, y genera el envío asociándolos al paquete ya registrado.

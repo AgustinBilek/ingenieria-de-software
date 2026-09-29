@@ -61,6 +61,7 @@
     <Compile Include="ISujetoComponente.cs" />
     <Compile Include="Permiso_MB29.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporte_AB29.cs" />
     <Compile Include="Rol_MB29.cs" />
     <Compile Include="SessionManager_MB29.cs" />
     <Compile Include="UsuarioServicio_MB29.cs" />

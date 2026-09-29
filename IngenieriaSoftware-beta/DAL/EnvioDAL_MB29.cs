@@ -373,5 +373,62 @@ namespace DAL
             conectar.Desconectar_MB29();
             return lista;
         }
+
+
+        public List<Reporte_AB29> ObtenerReporteRecepcionPaquetes_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+
+            string query = @"
+        SELECT
+            e.IdEnvio,
+            r.DNI            AS DNIRemitente,
+            r.Nombre         AS NombreRemitente,
+            r.Apellido       AS ApellidoRemitente,
+            d.Nombre         AS NombreDestinatario,
+            p.TipoPaquete,
+            p.Contenido,
+            e.Prioridad,
+            e.EstadoEnvio,
+            e.FechaIngreso,
+            e.HoraIngreso,
+            pg.TipoPago,
+            pg.MontoTotal
+        FROM Envio e
+        INNER JOIN Paquete     p  ON p.IdPaquete = e.IdPaquete
+        INNER JOIN Remitente   r  ON r.IdRemitente = e.IdRemitente
+        INNER JOIN Destinatario d ON d.IdDestinatario = e.IdDestinatario
+        LEFT JOIN  PagoEnvio   pg ON pg.IdEnvio = e.IdEnvio";
+
+            var lista = new List<Reporte_AB29>();
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new Reporte_AB29
+                    {
+                        IdEnvio_AB29 = Convert.ToInt32(reader["IdEnvio"]),
+                        DNIRemitente_AB29 = Convert.ToInt64(reader["DNIRemitente"]),
+                        NombreRemitente_AB29 = reader["NombreRemitente"].ToString(),
+                        ApellidoRemitente_AB29 = reader["ApellidoRemitente"].ToString(),
+                        NombreDestinatario_AB29 = reader["NombreDestinatario"].ToString(),
+                        TipoPaquete_AB29 = reader["TipoPaquete"].ToString(),
+                        Contenido_AB29 = reader["Contenido"].ToString(),
+                        Prioridad_AB29 = reader["Prioridad"] == DBNull.Value ? "" : reader["Prioridad"].ToString(),
+                        EstadoEnvio_AB29 = reader["EstadoEnvio"].ToString(),
+                        FechaIngreso_AB29 = Convert.ToDateTime(reader["FechaIngreso"]),
+                        HoraIngreso_AB29 = (TimeSpan)reader["HoraIngreso"],
+                        TipoPago_AB29 = reader["TipoPago"] == DBNull.Value ? "" : reader["TipoPago"].ToString(),
+                        MontoTotal_AB29 = reader["MontoTotal"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(reader["MontoTotal"])
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
     }
 }

@@ -117,6 +117,12 @@
     <Compile Include="formregistropaquete.Designer.cs">
       <DependentUpon>formregistropaquete.cs</DependentUpon>
     </Compile>
+    <Compile Include="formreporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formreporte.Designer.cs">
+      <DependentUpon>formreporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRoles_MB29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formregistropaquete.resx">
       <DependentUpon>formregistropaquete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formreporte.resx">
+      <DependentUpon>formreporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRoles_MB29.resx">
       <DependentUpon>FormRoles_MB29.cs</DependentUpon>
