@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraServicio_MB29.cs" />
+    <Compile Include="Clientebackup_AB29.cs" />
     <Compile Include="ClienteXML_AB29.cs" />
     <Compile Include="ComponentePermiso_MB29.cs" />
     <Compile Include="DigitoVerificador_MB29.cs" />

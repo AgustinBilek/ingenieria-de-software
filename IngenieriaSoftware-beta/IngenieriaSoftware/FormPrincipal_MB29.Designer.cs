@@ -44,11 +44,12 @@
             this.portuguesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rF1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rF2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroPaqueteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroEnvioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.confirmarEnvioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rF2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serializacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,22 +184,11 @@
             this.rF1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroPaqueteToolStripMenuItem,
             this.registroEnvioToolStripMenuItem,
-            this.confirmarEnvioToolStripMenuItem});
+            this.confirmarEnvioToolStripMenuItem,
+            this.serializacionToolStripMenuItem});
             this.rF1ToolStripMenuItem.Name = "rF1ToolStripMenuItem";
             this.rF1ToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.rF1ToolStripMenuItem.Text = "PN1";
-            // 
-            // rF2ToolStripMenuItem
-            // 
-            this.rF2ToolStripMenuItem.Name = "rF2ToolStripMenuItem";
-            this.rF2ToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.rF2ToolStripMenuItem.Text = "RF2";
-            // 
-            // ayudaToolStripMenuItem
-            // 
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // registroPaqueteToolStripMenuItem
             // 
@@ -219,6 +209,26 @@
             this.confirmarEnvioToolStripMenuItem.Name = "confirmarEnvioToolStripMenuItem";
             this.confirmarEnvioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.confirmarEnvioToolStripMenuItem.Text = "Confirmar envio";
+            this.confirmarEnvioToolStripMenuItem.Click += new System.EventHandler(this.confirmarEnvioToolStripMenuItem_Click);
+            // 
+            // rF2ToolStripMenuItem
+            // 
+            this.rF2ToolStripMenuItem.Name = "rF2ToolStripMenuItem";
+            this.rF2ToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.rF2ToolStripMenuItem.Text = "RF2";
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // serializacionToolStripMenuItem
+            // 
+            this.serializacionToolStripMenuItem.Name = "serializacionToolStripMenuItem";
+            this.serializacionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.serializacionToolStripMenuItem.Text = "Serializacion";
+            this.serializacionToolStripMenuItem.Click += new System.EventHandler(this.serializacionToolStripMenuItem_Click);
             // 
             // FormPrincipal_MB29
             // 
@@ -262,5 +272,6 @@
         private System.Windows.Forms.ToolStripMenuItem registroPaqueteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroEnvioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem confirmarEnvioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serializacionToolStripMenuItem;
     }
 }

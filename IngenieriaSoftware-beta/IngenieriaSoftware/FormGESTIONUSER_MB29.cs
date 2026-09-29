@@ -346,10 +346,7 @@ namespace IngenieriaSoftware
             DGVUsuarios.Columns.Add(colBloqueado);
 
 
-            toolTip1.SetToolTip(BtnLimpiar,
-       "Limpia los filtros y los campos de búsqueda, y muestra todos los usuarios.");
-            toolTip1.SetToolTip(BtnActualizar,
-                "Vuelve a consultar la base de datos y refresca la grilla con los datos actuales.");
+          
         }
 
         private void BloqueadosRB_CheckedChanged(object sender, EventArgs e)

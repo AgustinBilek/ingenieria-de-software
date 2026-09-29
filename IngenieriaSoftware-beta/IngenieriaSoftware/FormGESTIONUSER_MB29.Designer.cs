@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.DGVUsuarios = new System.Windows.Forms.DataGridView();
             this.DNITxt = new System.Windows.Forms.TextBox();
             this.NombreTxt = new System.Windows.Forms.TextBox();
@@ -49,11 +48,6 @@
             this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnDesbloquear = new System.Windows.Forms.Button();
             this.RBTodos = new System.Windows.Forms.RadioButton();
-            this.BtnLimpiar = new System.Windows.Forms.Button();
-            this.BtnActualizar = new System.Windows.Forms.Button();
-            this.BtnSerializar = new System.Windows.Forms.Button();
-            this.BtnDeserializar = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGVUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -281,72 +275,12 @@
             this.RBTodos.UseVisualStyleBackColor = true;
             this.RBTodos.CheckedChanged += new System.EventHandler(this.RBTodos_CheckedChanged);
             // 
-            // BtnLimpiar
-            // 
-            this.BtnLimpiar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BtnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiar.Location = new System.Drawing.Point(774, 632);
-            this.BtnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(163, 57);
-            this.BtnLimpiar.TabIndex = 25;
-            this.BtnLimpiar.Text = "BtnLimpiar";
-            this.BtnLimpiar.UseVisualStyleBackColor = false;
-            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
-            // 
-            // BtnActualizar
-            // 
-            this.BtnActualizar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActualizar.Location = new System.Drawing.Point(971, 632);
-            this.BtnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(163, 57);
-            this.BtnActualizar.TabIndex = 26;
-            this.BtnActualizar.Text = "BtnActualizar";
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
-            // 
-            // BtnSerializar
-            // 
-            this.BtnSerializar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BtnSerializar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSerializar.Location = new System.Drawing.Point(623, 528);
-            this.BtnSerializar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnSerializar.Name = "BtnSerializar";
-            this.BtnSerializar.Size = new System.Drawing.Size(163, 57);
-            this.BtnSerializar.TabIndex = 27;
-            this.BtnSerializar.Text = "BtnSerializar";
-            this.BtnSerializar.UseVisualStyleBackColor = false;
-            this.BtnSerializar.Click += new System.EventHandler(this.BtnSerializar_Click);
-            // 
-            // BtnDeserializar
-            // 
-            this.BtnDeserializar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BtnDeserializar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDeserializar.Location = new System.Drawing.Point(827, 528);
-            this.BtnDeserializar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnDeserializar.Name = "BtnDeserializar";
-            this.BtnDeserializar.Size = new System.Drawing.Size(163, 57);
-            this.BtnDeserializar.TabIndex = 28;
-            this.BtnDeserializar.Text = "BtnDeserializar";
-            this.BtnDeserializar.UseVisualStyleBackColor = false;
-            this.BtnDeserializar.Click += new System.EventHandler(this.BtnDeserializar_Click);
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
-            // 
             // FormGESTIONUSER_MB29
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1285, 700);
-            this.Controls.Add(this.BtnDeserializar);
-            this.Controls.Add(this.BtnSerializar);
-            this.Controls.Add(this.BtnActualizar);
-            this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.RBTodos);
             this.Controls.Add(this.BtnDesbloquear);
             this.Controls.Add(this.BtnSalir);
@@ -398,10 +332,5 @@
         private System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.Button BtnDesbloquear;
         private System.Windows.Forms.RadioButton RBTodos;
-        private System.Windows.Forms.Button BtnLimpiar;
-        private System.Windows.Forms.Button BtnActualizar;
-        private System.Windows.Forms.Button BtnSerializar;
-        private System.Windows.Forms.Button BtnDeserializar;
-        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -123,6 +123,12 @@
     <Compile Include="FormRoles_MB29.Designer.cs">
       <DependentUpon>FormRoles_MB29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formserializar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formserializar.Designer.cs">
+      <DependentUpon>Formserializar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBACKUPRESTORE.resx" />
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRoles_MB29.resx">
       <DependentUpon>FormRoles_MB29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formserializar.resx">
+      <DependentUpon>Formserializar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

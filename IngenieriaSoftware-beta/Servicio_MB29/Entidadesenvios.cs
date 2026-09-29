@@ -68,6 +68,11 @@ namespace Servicio_MB29
         public string TipoEnvio_MB29 { get; set; }
         public string CodigoSeguimiento_MB29 { get; set; }
         public char DigitoVerificador_MB29 { get; set; }
+
+        public string Descripcion_MB29
+        {
+            get { return $"#{IdEnvio_MB29} - Paquete #{IdPaquete_MB29} ({FechaIngreso_MB29:dd/MM/yyyy})"; }
+        }
     }
 
     public class PagoEnvio_MB29

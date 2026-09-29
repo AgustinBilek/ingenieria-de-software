@@ -40,6 +40,24 @@ namespace BLL
         {
             return _dal.ObtenerPaquetesSinEnvio_MB29();
         }
+
+
+        public List<Clientebackup_AB29> ObtenerClientes_AB29()
+        {
+            var lista = new List<Clientebackup_AB29>();
+
+            foreach (var r in _dal.ObtenerTodosLosRemitentes_AB29())
+                lista.Add(Clientebackup_AB29.DesdeRemitente_AB29(r));
+
+            foreach (var d in _dal.ObtenerTodosLosDestinatarios_AB29())
+                lista.Add(Clientebackup_AB29.DesdeDestinatario_AB29(d));
+
+            return lista;
+        }
+        public List<Envio_MB29> ObtenerEnviosPendientesConfirmacion_AB29()
+        {
+            return _dal.ObtenerEnviosPendientesConfirmacion_AB29();
+        }
         // ---------------- CU2: Registrar Envío ----------------
         // Pasos 2a, 2b y 3 de PN1: busca/da de alta remitente y destinatario
         // por DNI, y genera el envío asociándolos al paquete ya registrado.

@@ -176,5 +176,17 @@ namespace IngenieriaSoftware
             formregistroenvio formRegistroEnvio = new formregistroenvio();
             formRegistroEnvio.Show();
         }
+
+        private void serializacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formserializar formSerializar = new Formserializar();
+            formSerializar.Show();
+        }
+
+        private void confirmarEnvioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formconfirmarenvio formConfirmarEnvio = new formconfirmarenvio();
+            formConfirmarEnvio.Show();
+        }
     }
 }

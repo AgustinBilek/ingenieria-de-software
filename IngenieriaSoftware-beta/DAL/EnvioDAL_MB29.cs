@@ -281,5 +281,97 @@ namespace DAL
             conectar.Desconectar_MB29();
             return lista;
         }
+
+
+        public List<Remitente_MB29> ObtenerTodosLosRemitentes_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+            var lista = new List<Remitente_MB29>();
+
+            string query = "SELECT IdRemitente, DNI, Nombre, Apellido, Direccion, Telefono, Email FROM Remitente";
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new Remitente_MB29
+                    {
+                        IdRemitente_MB29 = Convert.ToInt32(reader["IdRemitente"]),
+                        DNI_MB29 = Convert.ToInt64(reader["DNI"]),
+                        Nombre_MB29 = reader["Nombre"].ToString(),
+                        Apellido_MB29 = reader["Apellido"].ToString(),
+                        Direccion_MB29 = reader["Direccion"].ToString(),
+                        Telefono_MB29 = reader["Telefono"].ToString(),
+                        Email_MB29 = reader["Email"].ToString()
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+
+
+        public List<Destinatario_MB29> ObtenerTodosLosDestinatarios_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+            var lista = new List<Destinatario_MB29>();
+
+            string query = "SELECT IdDestinatario, DNI, Nombre, Direccion, Telefono FROM Destinatario";
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new Destinatario_MB29
+                    {
+                        IdDestinatario_MB29 = Convert.ToInt32(reader["IdDestinatario"]),
+                        DNI_MB29 = Convert.ToInt64(reader["DNI"]),
+                        Nombre_MB29 = reader["Nombre"].ToString(),
+                        Direccion_MB29 = reader["Direccion"].ToString(),
+                        Telefono_MB29 = reader["Telefono"].ToString()
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+
+        public List<Envio_MB29> ObtenerEnviosPendientesConfirmacion_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+
+            string query = @"SELECT IdEnvio, IdPaquete, EstadoEnvio, FechaIngreso
+                      FROM Envio
+                      WHERE EstadoEnvio = 'Recibido en sucursal'";
+
+            var lista = new List<Envio_MB29>();
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new Envio_MB29
+                    {
+                        IdEnvio_MB29 = Convert.ToInt32(reader["IdEnvio"]),
+                        IdPaquete_MB29 = Convert.ToInt32(reader["IdPaquete"]),
+                        EstadoEnvio_MB29 = reader["EstadoEnvio"].ToString(),
+                        FechaIngreso_MB29 = Convert.ToDateTime(reader["FechaIngreso"])
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
     }
 }
