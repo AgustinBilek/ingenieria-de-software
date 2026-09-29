@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using BLL;
+using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace IngenieriaSoftware
 {
@@ -342,6 +344,12 @@ namespace IngenieriaSoftware
             colBloqueado.ReadOnly = true;
 
             DGVUsuarios.Columns.Add(colBloqueado);
+
+
+            toolTip1.SetToolTip(BtnLimpiar,
+       "Limpia los filtros y los campos de búsqueda, y muestra todos los usuarios.");
+            toolTip1.SetToolTip(BtnActualizar,
+                "Vuelve a consultar la base de datos y refresca la grilla con los datos actuales.");
         }
 
         private void BloqueadosRB_CheckedChanged(object sender, EventArgs e)
@@ -376,6 +384,120 @@ namespace IngenieriaSoftware
         private void RBTodos_CheckedChanged(object sender, EventArgs e)
         {
             FiltrarUsuarios_MB29();
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            NombreTxt.Clear();
+            ApellidoTxt.Clear();
+            DNITxt.Clear();
+            EmailTxt.Clear();
+
+            NombreTxt.Enabled = false;
+            ApellidoTxt.Enabled = false;
+            DNITxt.Enabled = false;
+            EmailTxt.Enabled = false;
+            RolCB.Enabled = false;
+
+            RBTodos.Checked = true;
+            _modo = 0;
+
+            CargarDGV_MB29();
+
+        }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarDGV_MB29();
+        }
+
+        private void BtnSerializar_Click(object sender, EventArgs e)
+        {
+            if (DGVUsuarios.DataSource == null)
+            {
+                MessageBox.Show("No hay datos para serializar.", "Sin datos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lo que se ve actualmente en la grilla (respeta el filtro aplicado)
+            var enPantalla = DGVUsuarios.DataSource as List<UsuarioServicio_MB29>;
+            if (enPantalla == null || enPantalla.Count == 0)
+            {
+                MessageBox.Show("No hay datos para serializar.", "Sin datos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var paraSerializar = enPantalla.Select(u => new ClienteXML_AB29(u)).ToList();
+
+            // El propio diálogo permite elegir la carpeta (📁) y escribir el nombre del archivo
+            using (var dialogo = new SaveFileDialog())
+            {
+                dialogo.Filter = "Archivo XML (*.xml)|*.xml";
+                dialogo.DefaultExt = "xml";
+                dialogo.FileName = "Clientes.xml";
+                dialogo.Title = "Guardar archivo XML";
+
+                if (dialogo.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    var serializador = new XmlSerializer(typeof(List<ClienteXML_AB29>));
+                    using (var stream = new FileStream(dialogo.FileName, FileMode.Create))
+                    {
+                        serializador.Serialize(stream, paraSerializar);
+                    }
+
+                    MessageBox.Show("El archivo XML fue generado correctamente.\n" + dialogo.FileName,
+                        "Serialización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error al serializar: " + ex.Message,
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void BtnDeserializar_Click(object sender, EventArgs e)
+        {
+            using (var dialogo = new OpenFileDialog())
+            {
+                dialogo.Filter = "Archivo XML (*.xml)|*.xml";
+                dialogo.Title = "Seleccionar archivo XML";
+
+                if (dialogo.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    var serializador = new XmlSerializer(typeof(List<ClienteXML_AB29>));
+                    List<ClienteXML_AB29> lista;
+
+                    using (var stream = new FileStream(dialogo.FileName, FileMode.Open))
+                    {
+                        lista = (List<ClienteXML_AB29>)serializador.Deserialize(stream);
+                    }
+
+                    DGVUsuarios.DataSource = null;
+                    DGVUsuarios.DataSource = lista;
+
+                    MessageBox.Show("El archivo XML fue cargado correctamente en la grilla.",
+                        "Deserialización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error al deserializar: " + ex.Message,
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }
