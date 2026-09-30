@@ -56,9 +56,9 @@ namespace DAL_MB29
 
             SqlConnection conexion = conectar.Conectar_MB29();
 
-            string query = @"INSERT INTO Persona (DNI, IdRol, Usuario, Nombre, Apellido, Telefono, Email, PasswordHash, Bloqueado, Estado, PrimerLogin)
-                            VALUES (@DNI, @IdRol, @Usuario, @Nombre, @Apellido, @Telefono, @Email, @PasswordHash, @Bloqueado, @Estado, 1);
-                            SELECT CAST(SCOPE_IDENTITY() AS INT);";
+            string query = @"INSERT INTO Persona (DNI, IdRol, Usuario, Nombre, Apellido, Telefono, Email, PasswordHash, Bloqueado, Estado, PrimerLogin, UltimoIdioma)
+                VALUES (@DNI, @IdRol, @Usuario, @Nombre, @Apellido, @Telefono, @Email, @PasswordHash, @Bloqueado, @Estado, 1, @UltimoIdioma);
+                SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
             using (SqlCommand comando = new SqlCommand(query, conexion))
             {
@@ -72,6 +72,7 @@ namespace DAL_MB29
                 comando.Parameters.AddWithValue("@Email", usuario.Email_MB29);
                 comando.Parameters.AddWithValue("@Bloqueado", false);
                 comando.Parameters.AddWithValue("@Estado", "Habilitado");
+                comando.Parameters.AddWithValue("@UltimoIdioma", "ES");
 
                 int nuevoId = Convert.ToInt32(comando.ExecuteScalar());
                 usuario.IdPersona_MB29 = nuevoId;

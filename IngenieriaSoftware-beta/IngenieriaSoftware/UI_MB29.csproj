@@ -53,10 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormBACKUPRESTORE.cs">
+    <Compile Include="formbitacoracambios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBACKUPRESTORE.Designer.cs" />
+    <Compile Include="formbitacoracambios.Designer.cs">
+      <DependentUpon>formbitacoracambios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBitacora_MB29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +134,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBACKUPRESTORE.resx" />
+    <EmbeddedResource Include="formbitacoracambios.resx">
+      <DependentUpon>formbitacoracambios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBitacora_MB29.resx">
       <DependentUpon>FormBitacora_MB29.cs</DependentUpon>
     </EmbeddedResource>

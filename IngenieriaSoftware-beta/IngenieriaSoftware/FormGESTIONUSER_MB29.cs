@@ -316,6 +316,9 @@ namespace IngenieriaSoftware
             DGVUsuarios.Columns["Bloqueado_MB29"].DisplayIndex = 8;
             DGVUsuarios.Columns["Estado_MB29"].DisplayIndex = 9;
             DGVUsuarios.Columns["PrimerLogin_MB29"].DisplayIndex = 10;
+            DGVUsuarios.Columns["UltimoIdioma_MB29"].DisplayIndex = 11;
+            if (DGVUsuarios.Columns["Rol_MB29"] != null)
+                DGVUsuarios.Columns["Rol_MB29"].Visible = false;
 
             if (DGVUsuarios.Columns["PassHash_MB29"] != null)
                 DGVUsuarios.Columns["PassHash_MB29"].Visible = false;
@@ -334,13 +337,13 @@ namespace IngenieriaSoftware
             RolCB.ValueMember = "IdRol_MB29";
             RolCB.DataSource = roles;
 
-            if (DGVUsuarios.Columns.Contains("Bloqueado"))
-                DGVUsuarios.Columns.Remove("Bloqueado");
+            if (DGVUsuarios.Columns.Contains("Bloqueado_MB29"))
+                DGVUsuarios.Columns.Remove("Bloqueado_MB29");
 
             var colBloqueado = new DataGridViewCheckBoxColumn();
-            colBloqueado.Name = "Bloqueado";
+            colBloqueado.Name = "colBloqueado";
             colBloqueado.HeaderText = "Bloqueado";
-            colBloqueado.DataPropertyName = "Bloqueado";
+            colBloqueado.DataPropertyName = "Bloqueado_MB29";
             colBloqueado.ReadOnly = true;
 
             DGVUsuarios.Columns.Add(colBloqueado);

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class EnvioBLL_MB29
+    public class EnvioBLL_AB29
     {
-        private readonly EnvioDAL_MB29 _dal = new EnvioDAL_MB29();
+        private readonly EnvioDAL_AB29 _dal = new EnvioDAL_AB29();
 
         public Remitente_MB29 BuscarRemitentePorDNI_MB29(long dni)
         {
@@ -138,23 +138,15 @@ criticidad: 2
             return envio;
         }
 
-        // ---------------- CU3: Gestionar Condiciones y Confirmación del Envío ----------------
+        //  CU3: Gestionar Condiciones y Confirmación del Envío 
         // Paso 4: condiciones (prioridad, tipo de envío)
         public void RegistrarCondiciones_MB29(string usuarioLogueado, int idEnvio, string prioridad, string tipoEnvio)
         {
-            string estadoAnterior = _dal.ObtenerEstadoEnvio_MB29(idEnvio);
             _dal.ActualizarCondiciones_MB29(idEnvio, prioridad, tipoEnvio);
 
             bitacoracambiosBLL.instancia.RegistrarModificacion_MB29(usuarioLogueado, "Envio", idEnvio,
-                      $"Estado={estadoAnterior}", $"Prioridad={prioridad}; TipoEnvio={tipoEnvio}");
-
-            BitacoraBLL_MB29.instancia.Registrar_MB29(
-    usuarioLogueado,
-    "Registrar Condiciones",
-    "Negocio",
-    $"Usuario {usuarioLogueado} definió las condiciones del envío #{idEnvio}: prioridad {prioridad}, tipo {tipoEnvio}",
-    criticidad: 2
-);
+                "Prioridad=(sin definir); TipoEnvio=(sin definir)",
+                $"Prioridad={prioridad}; TipoEnvio={tipoEnvio}");
         }
 
         // Paso 5: pago

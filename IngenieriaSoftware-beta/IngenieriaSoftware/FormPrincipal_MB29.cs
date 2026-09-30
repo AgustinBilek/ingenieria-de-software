@@ -19,8 +19,8 @@ namespace IngenieriaSoftware
         {
 
             const int ROL_ADMINISTRADOR = 1;
-            const int ROL_USUARIO = 2;
-            const int ROL_OPERADOR = 4;
+           
+            const int ROL_OPERADOR = 3;
 
 
             int rol = SessionManager_MB29.Instancia_MB29.UsuarioActual_MB29.IdRol_MB29;
@@ -200,6 +200,12 @@ namespace IngenieriaSoftware
         {
             formreporte formReportes = new formreporte();
             formReportes.Show();
+        }
+
+        private void cambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formbitacoracambios formBitacoraCambios = new formbitacoracambios();
+            formBitacoraCambios.Show();
         }
     }
 }

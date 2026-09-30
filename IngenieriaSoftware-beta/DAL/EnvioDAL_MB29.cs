@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace DAL
 {
-    public class EnvioDAL_MB29
+    public class EnvioDAL_AB29
     {
         // ---------- CU1: Registrar Paquete ----------
         public int GuardarPaquete_MB29(Paquete_MB29 paquete)
