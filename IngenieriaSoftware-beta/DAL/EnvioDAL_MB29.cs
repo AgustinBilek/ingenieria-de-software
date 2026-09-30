@@ -94,7 +94,7 @@ namespace DAL
             var conectar = new ConexionDB_MB29();
             var conexion = conectar.Conectar_MB29();
 
-            string query = "SELECT IdDestinatario, DNI, Nombre, Direccion, Telefono FROM Destinatario WHERE DNI = @DNI";
+            string query = "SELECT IdDestinatario, DNI, Nombre, Apellido,Direccion, Telefono FROM Destinatario WHERE DNI = @DNI";
             Destinatario_MB29 destinatario = null;
 
             using (SqlCommand comando = new SqlCommand(query, conexion))
@@ -109,6 +109,7 @@ namespace DAL
                             IdDestinatario_MB29 = Convert.ToInt32(reader["IdDestinatario"]),
                             DNI_MB29 = Convert.ToInt64(reader["DNI"]),
                             Nombre_MB29 = reader["Nombre"].ToString(),
+                            Apellido_MB29 = reader["Apellido"] == DBNull.Value ? "" : reader["Apellido"].ToString(),
                             Direccion_MB29 = reader["Direccion"].ToString(),
                             Telefono_MB29 = reader["Telefono"].ToString()
                         };
@@ -125,8 +126,8 @@ namespace DAL
             var conectar = new ConexionDB_MB29();
             var conexion = conectar.Conectar_MB29();
 
-            string query = @"INSERT INTO Destinatario (DNI, Nombre, Direccion, Telefono)
-                             VALUES (@DNI, @Nombre, @Direccion, @Telefono);
+            string query = @"INSERT INTO Destinatario (DNI, Nombre,Apellido, Direccion, Telefono)
+                             VALUES (@DNI, @Nombre, @Apellido,@Direccion, @Telefono);
                              SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
             int idNuevo;
@@ -134,6 +135,7 @@ namespace DAL
             {
                 comando.Parameters.AddWithValue("@DNI", destinatario.DNI_MB29);
                 comando.Parameters.AddWithValue("@Nombre", destinatario.Nombre_MB29);
+                comando.Parameters.AddWithValue("@Apellido", destinatario.Apellido_MB29);
                 comando.Parameters.AddWithValue("@Direccion", destinatario.Direccion_MB29);
                 comando.Parameters.AddWithValue("@Telefono", destinatario.Telefono_MB29);
                 idNuevo = Convert.ToInt32(comando.ExecuteScalar());
@@ -321,7 +323,7 @@ namespace DAL
             var conexion = conectar.Conectar_MB29();
             var lista = new List<Destinatario_MB29>();
 
-            string query = "SELECT IdDestinatario, DNI, Nombre, Direccion, Telefono FROM Destinatario";
+            string query = "SELECT IdDestinatario, DNI, Nombre,Apellido, Direccion, Telefono FROM Destinatario";
 
             using (SqlCommand comando = new SqlCommand(query, conexion))
             using (SqlDataReader reader = comando.ExecuteReader())
@@ -333,6 +335,7 @@ namespace DAL
                         IdDestinatario_MB29 = Convert.ToInt32(reader["IdDestinatario"]),
                         DNI_MB29 = Convert.ToInt64(reader["DNI"]),
                         Nombre_MB29 = reader["Nombre"].ToString(),
+                        Apellido_MB29 = reader["Apellido"] == DBNull.Value ? "" : reader["Apellido"].ToString(),
                         Direccion_MB29 = reader["Direccion"].ToString(),
                         Telefono_MB29 = reader["Telefono"].ToString()
                     });

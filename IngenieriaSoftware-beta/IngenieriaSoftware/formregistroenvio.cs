@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using Servicio_MB29;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace IngenieriaSoftware
 {
@@ -22,7 +23,7 @@ namespace IngenieriaSoftware
             InitializeComponent();
             Gestoridioma_MB29.Instancia_MB29.Agregar_MB29(this);
         }
-        private readonly EnvioBLL_MB29 _envioBLL = new EnvioBLL_MB29();
+        private readonly EnvioBLL_AB29 _envioBLL = new EnvioBLL_AB29();
         private int _idPaquete;
 
         private bool _remitenteExiste;
@@ -99,9 +100,25 @@ namespace IngenieriaSoftware
                 _remitenteExiste = false;
                 textBox2.Clear(); textBox3.Clear(); textBox4.Clear();
                 textBox5.Clear(); textBox6.Clear();
-                textBox7.Text = T("envio_estado_no_encontrado");
-                HabilitarCamposRemitente(true);
-                textBox2.Focus();
+
+                var comoDestinatario = _envioBLL.BuscarDestinatarioPorDNI_MB29(dni);
+                if (comoDestinatario != null)
+                {
+                    textBox2.Text = comoDestinatario.Nombre_MB29;
+                    textBox3.Text = comoDestinatario.Apellido_MB29;
+                    textBox4.Text = comoDestinatario.Direccion_MB29;
+                    textBox5.Text = comoDestinatario.Telefono_MB29;
+                    textBox7.Text = T("envio_estado_como_destinatario");
+
+                    HabilitarCamposRemitente(false);   // existe como destinatario, se bloquea
+                }
+                else
+                {
+                    textBox7.Text = T("envio_estado_no_encontrado");
+
+                    HabilitarCamposRemitente(true);    // no existe en ningún lado, se puede editar
+                    textBox2.Focus();
+                }
             }
         }
 
@@ -127,18 +144,35 @@ namespace IngenieriaSoftware
             {
                 _destinatarioExiste = true;
                 textBox13.Text = destinatario.Nombre_MB29;
-                textBox12.Text = destinatario.Direccion_MB29;
-                textBox11.Text = destinatario.Telefono_MB29;
+                textBox11.Text = destinatario.Apellido_MB29;
+                textBox8.Text = destinatario.Direccion_MB29;
+                textBox12.Text = destinatario.Telefono_MB29;
                 textBox10.Text = T("envio_estado_registrado");
                 HabilitarCamposDestinatario(false);
             }
             else
             {
                 _destinatarioExiste = false;
-                textBox13.Clear(); textBox12.Clear(); textBox11.Clear();
-                textBox10.Text = T("envio_estado_no_encontrado");
-                HabilitarCamposDestinatario(true);
-                textBox13.Focus();
+                textBox13.Clear(); textBox11.Clear(); textBox8.Clear(); textBox12.Clear();
+
+                var comoRemitente = _envioBLL.BuscarRemitentePorDNI_MB29(dni);
+                if (comoRemitente != null)
+                {
+                    textBox13.Text = comoRemitente.Nombre_MB29;
+                    textBox11.Text = comoRemitente.Apellido_MB29;
+                    textBox8.Text = comoRemitente.Direccion_MB29;
+                    textBox12.Text = comoRemitente.Telefono_MB29;
+                    textBox10.Text = T("envio_estado_como_remitente");
+
+                    HabilitarCamposDestinatario(false);  // existe como remitente, se bloquea
+                }
+                else
+                {
+                    textBox10.Text = T("envio_estado_no_encontrado");
+
+                    HabilitarCamposDestinatario(true);   // no existe en ningún lado, se puede editar
+                    textBox13.Focus();
+                }
             }
         }
 
@@ -166,16 +200,18 @@ namespace IngenieriaSoftware
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text) ||
-                string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text))
+            if (!_remitenteExiste &&
+     (string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text) ||
+      string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text)))
             {
                 MessageBox.Show(T("envio_msg_remitente_incompleto"), T("envio_titulo_incompleto"),
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox13.Text) || string.IsNullOrWhiteSpace(textBox12.Text) ||
-                string.IsNullOrWhiteSpace(textBox11.Text))
+            if (!_destinatarioExiste &&
+                (string.IsNullOrWhiteSpace(textBox13.Text) || string.IsNullOrWhiteSpace(textBox8.Text) ||
+                 string.IsNullOrWhiteSpace(textBox12.Text) || string.IsNullOrWhiteSpace(textBox11.Text)))
             {
                 MessageBox.Show(T("envio_msg_destinatario_incompleto"), T("envio_titulo_incompleto"),
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -190,7 +226,7 @@ namespace IngenieriaSoftware
                     usuario, _idPaquete,
                     dniRem, textBox2.Text.Trim(), textBox3.Text.Trim(),
                     textBox4.Text.Trim(), textBox5.Text.Trim(), textBox6.Text.Trim(),
-                    dniDest, textBox13.Text.Trim(), textBox12.Text.Trim(), textBox11.Text.Trim());
+                    dniDest, textBox13.Text.Trim(), textBox12.Text.Trim(), textBox11.Text.Trim(),textBox8.Text.Trim());
 
                 MessageBox.Show(string.Format(T("envio_msg_ok"), EnvioRegistrado.IdEnvio_MB29),
                     T("envio_titulo_ok"), MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -221,8 +257,9 @@ namespace IngenieriaSoftware
         private void HabilitarCamposDestinatario(bool habilitar)
         {
             textBox13.Enabled = habilitar; // nombre
-            textBox12.Enabled = habilitar; // direccion
-            textBox11.Enabled = habilitar; // telefono
+            textBox12.Enabled = habilitar; // apellido
+            textBox11.Enabled = habilitar;// telefono
+            textBox8.Enabled = habilitar; // direccion
         }
         private void CargarPaquetesPendientes()
         {

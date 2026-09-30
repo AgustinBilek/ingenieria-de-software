@@ -8,14 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Servicio_MB29;
 namespace IngenieriaSoftware
 {
-    public partial class formbitacoracambios: Form
+    public partial class formbitacoracambios: Form,IObserverIdioma_MB29
     {
         public formbitacoracambios()
         {
             InitializeComponent();
+            Gestoridioma_MB29.Instancia_MB29.Agregar_MB29(this);
+            actualizar_MB29(Gestoridioma_MB29.Instancia_MB29.IdiomaActual_MB29);
         }
         private void CargarBitacora_AB29()
         {
@@ -36,6 +38,16 @@ namespace IngenieriaSoftware
             if (dataGridView1.Columns["DetalleAnterior_MB29"] != null) dataGridView1.Columns["DetalleAnterior_MB29"].HeaderText = "Detalle anterior";
             if (dataGridView1.Columns["DetalleNuevo_MB29"] != null) dataGridView1.Columns["DetalleNuevo_MB29"].HeaderText = "Detalle nuevo";
         }
+
+       public void  actualizar_MB29(string idioma)
+        {
+            var g = Gestoridioma_MB29.Instancia_MB29;
+           
+            button1.Text = g.Traducir_MB29("btnActualizar");
+            button2.Text = g.Traducir_MB29("btnSalir");
+        }
+
+
         private void formbitacoracambios_Load(object sender, EventArgs e)
         {
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;

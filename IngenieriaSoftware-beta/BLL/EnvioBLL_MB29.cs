@@ -84,7 +84,7 @@ criticidad: 2
         // por DNI, y genera el envío asociándolos al paquete ya registrado.
         public Envio_MB29 RegistrarEnvio_MB29(string usuarioLogueado, int idPaquete,
             long dniRemitente, string nombreRem, string apellidoRem, string direccionRem, string telefonoRem, string emailRem,
-            long dniDestinatario, string nombreDest, string direccionDest, string telefonoDest)
+            long dniDestinatario, string nombreDest,string apellidoDest, string direccionDest, string telefonoDest)
         {
             // 2a: remitente
             var remitente = _dal.BuscarRemitentePorDNI_MB29(dniRemitente);
@@ -112,12 +112,13 @@ criticidad: 2
                 {
                     DNI_MB29 = dniDestinatario,
                     Nombre_MB29 = nombreDest,
+                    Apellido_MB29 = apellidoDest,
                     Direccion_MB29 = direccionDest,
                     Telefono_MB29 = telefonoDest
                 };
                 destinatario.IdDestinatario_MB29 = _dal.GuardarDestinatario_MB29(destinatario);
                 bitacoracambiosBLL.instancia.RegistrarAlta_MB29(usuarioLogueado, "Destinatario",
-                    destinatario.IdDestinatario_MB29, $"DNI={dniDestinatario}; Nombre={nombreDest}");
+                    destinatario.IdDestinatario_MB29, $"DNI={dniDestinatario}; Nombre={nombreDest} {apellidoDest}");
             }
 
             // 3: generar el envío

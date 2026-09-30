@@ -43,6 +43,8 @@ namespace Servicio_MB29
         public int IdDestinatario_MB29 { get; set; }
         public long DNI_MB29 { get; set; }
         public string Nombre_MB29 { get; set; }
+
+        public string Apellido_MB29 { get; set; }
         public string Direccion_MB29 { get; set; }
         public string Telefono_MB29 { get; set; }
     }

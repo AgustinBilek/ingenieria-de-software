@@ -132,7 +132,8 @@ namespace IngenieriaSoftware
             serializacionToolStripMenuItem.Text = g.Traducir_MB29("menu_serializacion");
             confirmarEnvioToolStripMenuItem.Text = g.Traducir_MB29("menu_confirmar_envio");
             reportesToolStripMenuItem.Text = g.Traducir_MB29("menu_reportes");
-           
+            cambiosToolStripMenuItem.Text = g.Traducir_MB29("menu_cambios");
+
 
         }
 

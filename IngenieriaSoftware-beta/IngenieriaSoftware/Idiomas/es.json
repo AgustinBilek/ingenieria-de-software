@@ -16,6 +16,7 @@
   "menu_confirmar_envio": "Confirmar envío",
   "menu_reportes": "Reportes",
   "menu_serializacion": "Serialización",
+  "menu_cambios": "bitacora de cambios",
 
   "login_titulo": "Iniciar Sesion",
   "login_usuario": "Usuario",

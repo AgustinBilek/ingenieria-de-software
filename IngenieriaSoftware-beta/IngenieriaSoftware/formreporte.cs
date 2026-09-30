@@ -25,7 +25,7 @@ namespace IngenieriaSoftware
             actualizar_MB29(Gestoridioma_MB29.Instancia_MB29.IdiomaActual_MB29);
 
         }
-        private readonly EnvioBLL_MB29 _envioBLL = new EnvioBLL_MB29();
+        private readonly EnvioBLL_AB29 _envioBLL = new EnvioBLL_AB29();
 
 
 

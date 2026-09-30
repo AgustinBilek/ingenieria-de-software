@@ -42,7 +42,7 @@ namespace Servicio_MB29
                 IdCliente_AB29 = d.IdDestinatario_MB29,
                 DNI_AB29 = d.DNI_MB29,
                 Nombre_AB29 = d.Nombre_MB29,
-                Apellido_AB29 = "",
+                Apellido_AB29 = d.Apellido_MB29,
                 Direccion_AB29 = d.Direccion_MB29,
                 Telefono_AB29 = d.Telefono_MB29,
                 Email_AB29 = ""

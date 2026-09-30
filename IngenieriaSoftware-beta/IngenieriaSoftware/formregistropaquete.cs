@@ -20,7 +20,7 @@ namespace IngenieriaSoftware
 
      
 
-        private readonly EnvioBLL_MB29 _envioBLL = new EnvioBLL_MB29();
+        private readonly EnvioBLL_AB29 _envioBLL = new EnvioBLL_AB29();
 
         public Paquete_MB29 PaqueteRegistrado { get; private set; }
 

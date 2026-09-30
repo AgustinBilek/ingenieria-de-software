@@ -16,7 +16,7 @@ namespace IngenieriaSoftware
 {
     public partial class Formserializar: Form,IObserverIdioma_MB29
     {
-        private readonly EnvioBLL_MB29 _envioBLL = new EnvioBLL_MB29();
+        private readonly EnvioBLL_AB29 _envioBLL = new EnvioBLL_AB29();
         public Formserializar()
         {
             InitializeComponent();
