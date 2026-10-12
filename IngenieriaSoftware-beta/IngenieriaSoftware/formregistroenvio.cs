@@ -51,8 +51,9 @@ namespace IngenieriaSoftware
             label7.Text = T("envio_lbl_estado");
             label9.Text = T("envio_lbl_dni");
             label13.Text = T("envio_lbl_nombre");
-            label12.Text = T("envio_lbl_direccion");
-            label11.Text = T("envio_lbl_telefono");
+            label11.Text = T("envio_lbl_direccion");   // antes decía "Teléfono" -> va al lado de textBox8
+            label12.Text = T("envio_lbl_apellido");    // antes decía "Dirección" -> va al lado de textBox11
+            label8.Text = T("envio_lbl_telefono");     // nuevo: nunca se seteaba -> va al lado de textBox12
             label10.Text = T("envio_lbl_estado");
 
             button1.Text = T("envio_btn_registrar");
@@ -223,10 +224,9 @@ namespace IngenieriaSoftware
                 string usuario = SessionManager_MB29.Instancia_MB29.UsuarioActual_MB29.Usuario_MB29;
 
                 EnvioRegistrado = _envioBLL.RegistrarEnvio_MB29(
-                    usuario, _idPaquete,
-                    dniRem, textBox2.Text.Trim(), textBox3.Text.Trim(),
-                    textBox4.Text.Trim(), textBox5.Text.Trim(), textBox6.Text.Trim(),
-                    dniDest, textBox13.Text.Trim(), textBox12.Text.Trim(), textBox11.Text.Trim(),textBox8.Text.Trim());
+      usuario, _idPaquete,
+      dniRem, textBox2.Text.Trim(), textBox3.Text.Trim(), textBox4.Text.Trim(), textBox5.Text.Trim(), textBox6.Text.Trim(),
+      dniDest, textBox13.Text.Trim(), textBox11.Text.Trim(), textBox8.Text.Trim(), textBox12.Text.Trim());
 
                 MessageBox.Show(string.Format(T("envio_msg_ok"), EnvioRegistrado.IdEnvio_MB29),
                     T("envio_titulo_ok"), MessageBoxButtons.OK, MessageBoxIcon.Information);
