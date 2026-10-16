@@ -122,6 +122,7 @@ namespace Servicio_MB29
         public string Patente_MB29 { get; set; }
         public string Tipo_MB29 { get; set; }
         public string Estado_MB29 { get; set; }
+        public string Descripcion_AB29 { get { return $"{Patente_MB29} - {Tipo_MB29}"; } }
     }
 
     public class AsignacionRepartidor_MB29
@@ -152,6 +153,25 @@ namespace Servicio_MB29
         public DateTime? FechaEntrega_MB29 { get; set; }
         public TimeSpan? HoraEntrega_MB29 { get; set; }
         public string FirmaDestinatario_MB29 { get; set; }
+    }
+
+    public class EnvioParaEntrega_AB29
+    {
+        public int IdEnvio_AB29 { get; set; }
+        public string Direccion_AB29 { get; set; }
+        public string Estado_AB29 { get; set; }
+    }
+
+    public class RepartidorDisponible_AB29
+    {
+        public int IdPersona_AB29 { get; set; }
+        public string Nombre_AB29 { get; set; }
+        public string Apellido_AB29 { get; set; }
+
+        public string NombreCompleto_AB29
+        {
+            get { return $"{Apellido_AB29}, {Nombre_AB29}"; }
+        }
     }
 
 }

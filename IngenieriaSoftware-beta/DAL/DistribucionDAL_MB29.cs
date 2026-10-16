@@ -2,6 +2,7 @@ using Servicio_MB29;
 using DAL_MB29;
 using System;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace DAL
 {
@@ -132,6 +133,200 @@ namespace DAL
             }
 
             conectar.Desconectar_MB29();
+        }
+
+
+        public string ObtenerEstadoEnvio_AB29(int idEnvio)
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+
+            string query = "SELECT EstadoEnvio FROM Envio WHERE IdEnvio = @IdEnvio";
+            string estado = null;
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            {
+                comando.Parameters.AddWithValue("@IdEnvio", idEnvio);
+                var resultado = comando.ExecuteScalar();
+                if (resultado != null) estado = resultado.ToString();
+            }
+
+            conectar.Desconectar_MB29();
+            return estado;
+        }
+
+        public List<Envio_MB29> ObtenerEnviosListosParaDespacho_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+
+            string query = @"SELECT IdEnvio, IdPaquete, EstadoEnvio, FechaIngreso
+                     FROM Envio
+                     WHERE EstadoEnvio = 'Listo para despacho'";
+
+            var lista = new List<Envio_MB29>();
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new Envio_MB29
+                    {
+                        IdEnvio_MB29 = Convert.ToInt32(reader["IdEnvio"]),
+                        IdPaquete_MB29 = Convert.ToInt32(reader["IdPaquete"]),
+                        EstadoEnvio_MB29 = reader["EstadoEnvio"].ToString(),
+                        FechaIngreso_MB29 = Convert.ToDateTime(reader["FechaIngreso"])
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+        public List<RepartidorDisponible_AB29> ObtenerRepartidoresDisponibles_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+
+            string query = @"SELECT p.IdPersona, p.Nombre, p.Apellido
+                     FROM Persona p
+                     INNER JOIN Rol r ON r.IdRol = p.IdRol
+                     WHERE r.Nombre = 'Repartidor'
+                       AND p.Estado = 'Habilitado'
+                       AND p.Bloqueado = 0";
+
+            var lista = new List<RepartidorDisponible_AB29>();
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new RepartidorDisponible_AB29
+                    {
+                        IdPersona_AB29 = Convert.ToInt32(reader["IdPersona"]),
+                        Nombre_AB29 = reader["Nombre"].ToString(),
+                        Apellido_AB29 = reader["Apellido"].ToString()
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+        public List<Envio_MB29> ObtenerEnviosPorEstado_AB29(string estado)
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+            var lista = new List<Envio_MB29>();
+
+            string query = @"SELECT IdEnvio, IdPaquete, EstadoEnvio, FechaIngreso
+                     FROM Envio WHERE EstadoEnvio = @Estado";
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            {
+                comando.Parameters.AddWithValue("@Estado", estado);
+                using (SqlDataReader reader = comando.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new Envio_MB29
+                        {
+                            IdEnvio_MB29 = Convert.ToInt32(reader["IdEnvio"]),
+                            IdPaquete_MB29 = Convert.ToInt32(reader["IdPaquete"]),
+                            EstadoEnvio_MB29 = reader["EstadoEnvio"].ToString(),
+                            FechaIngreso_MB29 = Convert.ToDateTime(reader["FechaIngreso"])
+                        });
+                    }
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+        public List<Vehiculo_MB29> ObtenerVehiculosDisponibles_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+            var lista = new List<Vehiculo_MB29>();
+
+            string query = "SELECT IdVehiculo, Patente, Tipo, Estado FROM Vehiculo WHERE Estado = 'Disponible'";
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new Vehiculo_MB29
+                    {
+                        IdVehiculo_MB29 = Convert.ToInt32(reader["IdVehiculo"]),
+                        Patente_MB29 = reader["Patente"].ToString(),
+                        Tipo_MB29 = reader["Tipo"].ToString(),
+                        Estado_MB29 = reader["Estado"].ToString()
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+        public List<EnvioParaEntrega_AB29> ObtenerEnviosDeRepartidor_AB29(int idRepartidor, string estado)
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+            var lista = new List<EnvioParaEntrega_AB29>();
+
+            string query = @"SELECT e.IdEnvio, d.Direccion, e.EstadoEnvio
+                     FROM Envio e
+                     INNER JOIN AsignacionRepartidor a ON a.IdEnvio = e.IdEnvio
+                     INNER JOIN Destinatario d ON d.IdDestinatario = e.IdDestinatario
+                     WHERE a.IdRepartidor = @IdRepartidor AND e.EstadoEnvio = @Estado";
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            {
+                comando.Parameters.AddWithValue("@IdRepartidor", idRepartidor);
+                comando.Parameters.AddWithValue("@Estado", estado);
+                using (SqlDataReader reader = comando.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new EnvioParaEntrega_AB29
+                        {
+                            IdEnvio_AB29 = Convert.ToInt32(reader["IdEnvio"]),
+                            Direccion_AB29 = reader["Direccion"].ToString(),
+                            Estado_AB29 = reader["EstadoEnvio"].ToString()
+                        });
+                    }
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+        // Devuelve 0 si el envío todavía no tiene recepción registrada
+        public int ObtenerIdEntregaPorEnvio_AB29(int idEnvio)
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+            int id = 0;
+
+            string query = "SELECT TOP 1 IdEntrega FROM EntregaEnvio WHERE IdEnvio = @IdEnvio ORDER BY IdEntrega DESC";
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            {
+                comando.Parameters.AddWithValue("@IdEnvio", idEnvio);
+                var resultado = comando.ExecuteScalar();
+                if (resultado != null) id = Convert.ToInt32(resultado);
+            }
+
+            conectar.Desconectar_MB29();
+            return id;
         }
     }
 }

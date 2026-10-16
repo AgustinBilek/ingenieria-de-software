@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formasignarenvio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formasignarenvio.Designer.cs">
+      <DependentUpon>formasignarenvio.cs</DependentUpon>
+    </Compile>
     <Compile Include="formbitacoracambios.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -22,6 +22,11 @@ namespace IngenieriaSoftware
            
             const int ROL_OPERADOR = 3;
 
+            const int ROL_REPARTIDOR = 4;      
+            const int ROL_OPERARIO_CARGA = 5;
+
+       
+
 
             int rol = SessionManager_MB29.Instancia_MB29.UsuarioActual_MB29.IdRol_MB29;
             InitializeComponent();
@@ -42,15 +47,25 @@ namespace IngenieriaSoftware
                 rF2ToolStripMenuItem.Enabled = true;
                 ayudaToolStripMenuItem.Enabled = true;
             }
-            else
+            else if(rol == ROL_REPARTIDOR)
             {
                 administradorToolStripMenuItem.Enabled = false;
                 administradorToolStripMenuItem.Visible = false;
                 usuarioToolStripMenuItem.Enabled = true;
                 rF1ToolStripMenuItem.Enabled = false;
                 rF1ToolStripMenuItem.Visible = false;
-                rF2ToolStripMenuItem.Enabled = false;
-                rF2ToolStripMenuItem.Visible = false;
+                rF2ToolStripMenuItem.Enabled = true;
+                ayudaToolStripMenuItem.Enabled = true;
+            }
+            else if (rol == ROL_OPERARIO_CARGA)
+            {
+                administradorToolStripMenuItem.Enabled = false;
+                administradorToolStripMenuItem.Visible = false;
+                usuarioToolStripMenuItem.Enabled = true;
+                rF1ToolStripMenuItem.Enabled = false;
+                rF1ToolStripMenuItem.Visible = false;
+                rF2ToolStripMenuItem.Enabled = true;
+                rF2ToolStripMenuItem.Visible = true;
                 ayudaToolStripMenuItem.Enabled = true;
             }
             //Registrar como observer y aplicar idioma actual
