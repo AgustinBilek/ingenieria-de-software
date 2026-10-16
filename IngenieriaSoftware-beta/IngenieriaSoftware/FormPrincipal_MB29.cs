@@ -223,5 +223,31 @@ namespace IngenieriaSoftware
             formbitacoracambios formBitacoraCambios = new formbitacoracambios();
             formBitacoraCambios.Show();
         }
+
+        private void registrarEntregaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formregistroentrega formregistroentrega = new Formregistroentrega();
+            formregistroentrega.Show();
+        }
+
+        private void asignarEnvioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formasignarenvio formasignarenvio = new formasignarenvio();
+            formasignarenvio.Show();
+
+        }
+
+        private void cargarPaqueteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formcargarpaquete formcargarpaquete = new Formcargarpaquete();
+            formcargarpaquete.Show();
+        }
+
+        private void iniciarDistribucionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formdistribucion formdistribucion = new Formdistribucion(); 
+            formdistribucion.Show();
+
+        }
     }
 }
