@@ -249,5 +249,11 @@ namespace IngenieriaSoftware
             formdistribucion.Show();
 
         }
+
+        private void reportesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormReporte2 formReporte2 = new FormReporte2();
+            formReporte2.Show();
+        }
     }
 }

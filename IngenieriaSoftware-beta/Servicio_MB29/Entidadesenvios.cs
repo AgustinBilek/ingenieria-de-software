@@ -174,5 +174,22 @@ namespace Servicio_MB29
         }
     }
 
+    public class ReporteEnvioPaquetes_AB29
+    {
+        public int IdEnvio_AB29 { get; set; }
+        public string Repartidor_AB29 { get; set; }
+        public string Destinatario_AB29 { get; set; }
+        public string Direccion_AB29 { get; set; }
+        public string Vehiculo_AB29 { get; set; }
+        public string EstadoEnvio_AB29 { get; set; }
+
+        // Tiempos de cada etapa (null = etapa todavía no realizada)
+        public DateTime? FechaAsignacion_AB29 { get; set; }
+        public DateTime? FechaCarga_AB29 { get; set; }
+        public DateTime? FechaRecepcion_AB29 { get; set; }
+        public DateTime? FechaSalida_AB29 { get; set; }
+        public DateTime? FechaEntrega_AB29 { get; set; }
+    }
+
 }
 

@@ -328,5 +328,75 @@ namespace DAL
             conectar.Desconectar_MB29();
             return id;
         }
+
+
+
+
+        public List<ReporteEnvioPaquetes_AB29> ObtenerReporteEnvioPaquetes_AB29()
+        {
+            var conectar = new ConexionDB_MB29();
+            var conexion = conectar.Conectar_MB29();
+
+            string query = @"
+        SELECT
+            e.IdEnvio,
+            pe.Nombre + ' ' + pe.Apellido AS Repartidor,
+            d.Nombre                      AS Destinatario,
+            d.Direccion,
+            v.Patente,
+            e.EstadoEnvio,
+            a.FechaAsignacion,
+            c.FechaHoraCarga,
+            en.FechaHoraRecepcion,
+            en.FechaSalida,
+            en.HoraSalida,
+            en.FechaEntrega,
+            en.HoraEntrega
+        FROM AsignacionRepartidor a
+        INNER JOIN Envio         e  ON e.IdEnvio = a.IdEnvio
+        INNER JOIN Persona       pe ON pe.IdPersona = a.IdRepartidor
+        INNER JOIN Destinatario  d  ON d.IdDestinatario = e.IdDestinatario
+        LEFT JOIN  CargaVehiculo c  ON c.IdEnvio = e.IdEnvio
+        LEFT JOIN  Vehiculo      v  ON v.IdVehiculo = c.IdVehiculo
+        LEFT JOIN  EntregaEnvio  en ON en.IdEnvio = e.IdEnvio
+        ORDER BY a.FechaAsignacion DESC";
+
+            var lista = new List<ReporteEnvioPaquetes_AB29>();
+
+            using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new ReporteEnvioPaquetes_AB29
+                    {
+                        IdEnvio_AB29 = Convert.ToInt32(reader["IdEnvio"]),
+                        Repartidor_AB29 = reader["Repartidor"].ToString(),
+                        Destinatario_AB29 = reader["Destinatario"].ToString(),
+                        Direccion_AB29 = reader["Direccion"].ToString(),
+                        Vehiculo_AB29 = reader["Patente"] == DBNull.Value ? "" : reader["Patente"].ToString(),
+                        EstadoEnvio_AB29 = reader["EstadoEnvio"].ToString(),
+                        FechaAsignacion_AB29 = reader["FechaAsignacion"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["FechaAsignacion"]),
+                        FechaCarga_AB29 = reader["FechaHoraCarga"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["FechaHoraCarga"]),
+                        FechaRecepcion_AB29 = reader["FechaHoraRecepcion"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["FechaHoraRecepcion"]),
+                        FechaSalida_AB29 = CombinarFechaHora_AB29(reader["FechaSalida"], reader["HoraSalida"]),
+                        FechaEntrega_AB29 = CombinarFechaHora_AB29(reader["FechaEntrega"], reader["HoraEntrega"])
+                    });
+                }
+            }
+
+            conectar.Desconectar_MB29();
+            return lista;
+        }
+
+
+        private DateTime? CombinarFechaHora_AB29(object fecha, object hora)
+        {
+            if (fecha == DBNull.Value) return null;
+            DateTime resultado = Convert.ToDateTime(fecha).Date;
+            if (hora != DBNull.Value) resultado = resultado + (TimeSpan)hora;
+            return resultado;
+        }
+
     }
 }

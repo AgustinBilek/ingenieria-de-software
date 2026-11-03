@@ -41,9 +41,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(38, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Paquete";
             // 
             // comboBox1
             // 
@@ -59,9 +59,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(38, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.label2.Text = "Repartidor";
             // 
             // comboBox2
             // 
@@ -78,7 +78,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(218, 54);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "Asignar envio";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

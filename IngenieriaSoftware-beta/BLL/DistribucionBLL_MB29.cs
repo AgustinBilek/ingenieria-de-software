@@ -9,8 +9,7 @@ namespace BLL
     {
         private readonly DistribucionDAL_MB29 _dal = new DistribucionDAL_MB29();
 
-        // ---------------- CU1 PN2: Asignar Envío a Repartidor ----------------
-        // Pasos 1 y 2: preparar el paquete para despacho y asignarlo a un repartidor.
+       
         public List<Envio_MB29> ObtenerEnviosAsignados_AB29()
         {
             return _dal.ObtenerEnviosPorEstado_AB29("Asignado");
@@ -57,8 +56,7 @@ namespace BLL
             return asignacion;
         }
 
-        // ---------------- CU2 PN2: Cargar Paquete en Vehículo ----------------
-        // Paso 3: el operario de carga recibe el paquete y lo carga al vehículo.
+        
         public CargaVehiculo_MB29 CargarPaqueteEnVehiculo_MB29(string usuarioLogueado, int idEnvio, int idVehiculo, int idOperarioCarga)
         {
             string estadoAnterior = _dal.ObtenerEstadoEnvio_AB29(idEnvio);
@@ -81,8 +79,7 @@ namespace BLL
             return carga;
         }
 
-        // ---------------- CU3 PN2: Realizar Entrega ----------------
-        // Paso 4: el repartidor recibe los envíos asignados para su distribución.
+        
         public EntregaEnvio_MB29 RecibirEnvioParaDistribucion_MB29(string usuarioLogueado, int idEnvio, int idRepartidor)
         {
             if (_dal.ObtenerEstadoEnvio_AB29(idEnvio) != "Cargado")
@@ -99,7 +96,7 @@ namespace BLL
             entrega.IdEntrega_MB29 = _dal.GuardarEntrega_MB29(entrega);
             return entrega;
         }
-        // Paso 5: inicio de la entrega -> estado "en camino"
+       
         public void IniciarEntrega_MB29(string usuarioLogueado, int idEntrega, int idEnvio)
         {
             string estadoAnterior = _dal.ObtenerEstadoEnvio_AB29(idEnvio);
@@ -114,7 +111,7 @@ namespace BLL
                 $"Estado={estadoAnterior}", "Estado=En camino");
         }
 
-        // Paso 6: entrega final + firma del destinatario -> estado "entregado"
+     
         public void RegistrarEntregaFinal_MB29(string usuarioLogueado, int idEntrega, int idEnvio, string firmaDestinatario)
         {
             if (string.IsNullOrWhiteSpace(firmaDestinatario))
@@ -143,6 +140,12 @@ namespace BLL
             return _dal.ObtenerRepartidoresDisponibles_AB29();
         }
 
-   
+
+
+        public List<ReporteEnvioPaquetes_AB29> ObtenerReporteEnvioPaquetes_AB29()
+        {
+            return _dal.ObtenerReporteEnvioPaquetes_AB29();
+        }
+
     }
 }
