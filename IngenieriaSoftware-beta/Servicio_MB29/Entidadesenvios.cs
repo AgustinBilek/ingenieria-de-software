@@ -173,7 +173,6 @@ namespace Servicio_MB29
             get { return $"{Apellido_AB29}, {Nombre_AB29}"; }
         }
     }
-
     public class ReporteEnvioPaquetes_AB29
     {
         public int IdEnvio_AB29 { get; set; }
